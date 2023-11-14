@@ -1,35 +1,48 @@
-/* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import './Stories.css'
-import Slider from "react-slick";
+import React from "react";
+import Avatar from "./Avatar";
+import "./Stories.css";
+import { statusCarousel } from "./data";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+
 const Stories = () => {
-  const [state, setState] = useState([
-    { id: 1, image: "https://i.pravatar.cc/65?img=1", name: "Natalie" },
-    { id: 2, image: "https://i.pravatar.cc/65?img=2", name: "Rajan" },
-    { id: 3, image: "https://i.pravatar.cc/65?img=3", name: "Ethan" },
-    { id: 4, image: "https://i.pravatar.cc/65?img=4", name: "Joseph" },
-    { id: 5, image: "https://i.pravatar.cc/65?img=5", name: "Layla" },
-    { id: 6, image: "https://i.pravatar.cc/65?img=6", name: "Nolan" },
-    { id: 7, image: "https://i.pravatar.cc/65?img=7", name: "Karthik" },
-    { id: 8, image: "https://i.pravatar.cc/65?img=8", name: "Bobby" },
-    { id: 9, image: "https://i.pravatar.cc/65?img=9", name: "آمال" },
-  ]);
+  const handleSlide = (direction) => {
+    const slider = document.getElementsByClassName("carousel-body")[0];
+  
+    if (slider) {
+      const scrollAmount = 400; // Adjust as needed
+  
+      if (direction === "left") {
+        if (slider.scrollLeft > 0) {
+          slider.scrollLeft -= scrollAmount;
+        }
+      } else {
+        if (slider.scrollLeft + slider.clientWidth < slider.scrollWidth) {
+          slider.scrollLeft += scrollAmount;
+        }
+      }
+    }
+  };
+  
+
   return (
-    <div className="stories">
-      {state.map((user) => (
-        <div className="stories__info" key={user.id}>
-          <div className="stories__img">
-            <span>
-              <img src={user.image} alt="user" />
-            </span>
-          </div>
-          <div className="stories__name">{user.name}</div>
-        </div>
-      ))}
-         
-    </div>
+    <section className="check">
+      <div className="arrow-btn left-icon" onClick={() => handleSlide("left")}>
+        <KeyboardArrowLeftIcon />
+      </div>
+      <div
+        className="arrow-btn right-icon"
+        onClick={() => handleSlide("right")}
+      >
+        <ChevronRightIcon />
+      </div>
+      <div className="carousel-body">
+        {statusCarousel.map((item) => {
+          return <Avatar key={item} image={item} />;
+        })}
+      </div>
+    </section>
   );
-      
 };
 
 export default Stories;

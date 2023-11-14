@@ -4,11 +4,12 @@
 }
 
 .timeline_left {
-  flex: 0.7;
+  flex: 0.8;
+  margin-left: -1rem;
 }
 
 .timeline_right {
-  flex: 0.3;
+  margin-left: 10rem;
 }
 
 /* .timeline_posts {

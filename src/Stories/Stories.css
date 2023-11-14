@@ -1,42 +1,84 @@
-.stories {
+.avatar-box{
+    width: 55px;
+    height: 55px;
+    aspect-ratio: 1/1;
+    background-image: linear-gradient(30deg, #ffc800 25%, #D400C1 55%);
+    border-radius: 50%;
     display: flex;
-    background: black;
-    padding: 15px 10px;
-    width: 65%;
-    display: flex;
-    justify-content: center;
-    border-radius: 3px;
-    overflow: hidden;
-  }
-  .stories__info {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    margin: 0 6px;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+.avatar-profile-image{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 3px;
+    border: 3px solid white;
+}
+.carousel-status{
+    padding: 16px 0px;
+}
+.carousel-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow-x: scroll;
+    height: 119px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 8px;
+    /* position: relative; */
+    scroll-behavior: smooth;
+}
+.carousel-body::-webkit-scrollbar {
+    display: none;
+  }
+.avatar-detail{
+    margin-left: 20px;
+    text-align: center;
+}
+.avatar-name{
+    font-size: 12px;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 60px;
+}
+.check{
+    position: relative;
+    top: 25px;
+    left: 20px;
+}
+.arrow-btn{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background-color: #f1f4f7;
+    border-radius: 50%;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+    z-index: 999;
     cursor: pointer;
-  }
-  .stories__img {
-    width: 66px;
-    height: 66px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid transparent;
-    background:linear-gradient(#000000,#000000) padding-box,linear-gradient(45deg ,#f9f709,42%, #dd00ff) border-box;
-    padding: 3px;
-  }
-  .stories__img span {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  .stories__img span img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .stories__name {
-    font-size: 11px;
-    margin-top: 4px;
-  }
+}
+.arrow-btn:hover{
+    opacity: 1;
+}
+.arrow-btn img{
+    width: 10px;
+    height: 10px;
+}
+.left-icon{
+    left: 10px;
+    top: 20px;
+}
+.right-icon{
+    right: 10px;
+    top: 20px;
+}
+
+
+

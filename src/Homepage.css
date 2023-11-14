@@ -5,9 +5,12 @@
 
 .homepage_navWraper {
   position: relative;
-  flex: 0.2;
+  flex: 0.5;
 }
 
 .homepage_timeline {
   flex: 0.8;
+}
+.stories_1{
+max-width: 620px;
 }
