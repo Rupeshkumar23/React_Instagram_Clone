@@ -15,5 +15,8 @@
 
 } */
 .timeline_posts{
-  margin-left: 15rem;
+  /* margin-left: 15rem; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

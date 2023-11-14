@@ -1,0 +1,42 @@
+.stories {
+    display: flex;
+    background: black;
+    padding: 15px 10px;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .stories__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 6px;
+    cursor: pointer;
+  }
+  .stories__img {
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid transparent;
+    background:linear-gradient(#000000,#000000) padding-box,linear-gradient(45deg ,#f9f709,42%, #dd00ff) border-box;
+    padding: 3px;
+  }
+  .stories__img span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .stories__img span img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .stories__name {
+    font-size: 11px;
+    margin-top: 4px;
+  }
