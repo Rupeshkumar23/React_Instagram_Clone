@@ -21,6 +21,7 @@ const Stories = () => {
           slider.scrollLeft += scrollAmount;
         }
       }
+      
     }
   };
   

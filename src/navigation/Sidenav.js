@@ -22,9 +22,11 @@ function Sidenav() {
     signOut(auth);
   };
   return (
+    <>
+    <div className="main">
     <div className="sidenav">
       <img
-        className="sidenav__logo"
+        className="sidenav_logo"
         src="https://www.pngkey.com/png/full/828-8286178_mackeys-work-needs-no-elaborate-presentation-or-distracting.png"
         alt="Instagram Logo"
       />
@@ -70,13 +72,16 @@ function Sidenav() {
           </span>
         </button>
       </div>
+      </div>
       <div className="sidenav_more">
         <button className="sidenav_button">
           <MenuIcon />
           <span className="sidenav_buttonText">More</span>
         </button>
       </div>
-    </div>
+      </div>
+   
+      </>
   );
 }
 

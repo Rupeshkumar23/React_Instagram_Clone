@@ -1,12 +1,17 @@
 .sidenav {
-  position: fixed;
   display: flex;
+  width: 100%;
   flex-direction: column;
-  justify-content: space-between;
   z-index: 1;
 }
+.main{
+  border-right: 1px solid #ffffff3b;
+  position: fixed;
+  height: 100vh;
+  width: 14%;
+}
 
-.sidenav__logo {
+.sidenav_logo {
   width: 120px;
   margin: 25px;
 }
@@ -31,6 +36,7 @@
 
 .sidenav_button:hover {
   cursor: pointer;
+  width: 92%;
   background-color: rgba(255, 255, 255, 0.128);
 }
 
@@ -41,8 +47,9 @@
 }
 
 .sidenav_more {
+  margin-top: 20rem;
   position: fixed;
-  bottom: 3px;
+  width: 14%;
 }
 
 .logout_button {
@@ -59,3 +66,10 @@
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.424);
 }
+
+
+
+
+
+
+

@@ -23,11 +23,13 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 100%;
     overflow-x: scroll;
     height: 119px;
     background-color: rgb(0, 0, 0);
     border-radius: 8px;
-    /* position: relative; */
+    position: relative;
+    padding-left: 4rem;
     scroll-behavior: smooth;
 }
 .carousel-body::-webkit-scrollbar {
@@ -51,16 +53,15 @@
     left: 20px;
 }
 .arrow-btn{
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     position: absolute;
     background-color: #f1f4f7;
     border-radius: 50%;
-    color: black;
+    color: rgba(0, 0, 0, 0.451);
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.8;
     z-index: 999;
     cursor: pointer;
 }
@@ -74,6 +75,7 @@
 .left-icon{
     left: 10px;
     top: 20px;
+    opacity: 0.5;
 }
 .right-icon{
     right: 10px;
