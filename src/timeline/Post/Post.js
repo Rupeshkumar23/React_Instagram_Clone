@@ -56,7 +56,17 @@ function Post({ user, postImage, likes, timestamp }) {
         </div>
         <span className="like-count">{likeCount} likes</span>
       </div>
+      <p style={{textAlign:'start' , }}>zuck Sharing an update on some of Meta's next generation infra to power new AI experiences…</p>
+       <div  style={{cursor:"pointer"}}>
+           <p style={{textAlign:"start" , color:"#A8A8A8"}}>View all 3,250 comments</p>
+           <p style={{textAlign:"start" , color:"#A8A8A8"}}>more</p>
+      <div className="text_A">
+      <textarea placeholder="Add a comment..."></textarea>
+      <span className="emoji" role="img" aria-label="smiley">☺</span>
     </div>
+       </div>
+    </div>
+    
   );
 }
 

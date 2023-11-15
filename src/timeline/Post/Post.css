@@ -65,3 +65,25 @@
     transform: scale(1.2);
   }
 }
+.text_A{
+  display: flex;
+}
+
+textarea {
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  width: calc(100% - 20px);
+  padding: 10px;
+  border-radius: 4px;
+  resize: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.emoji {
+  color: #9b9b9b;
+  margin-left: 5px;
+  font-size: 18px;
+}
+
