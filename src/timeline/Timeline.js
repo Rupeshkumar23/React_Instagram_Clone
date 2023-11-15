@@ -9,45 +9,78 @@ import Img_3 from '../Imgs/Go_S.png'
 import Img_4 from '../Imgs/V_J.png'
 import Img_5 from '../Imgs/Rock_S.png'
 import Img_6 from '../Imgs/Js.png'
+import Img_7 from '../Imgs/Rockstar_Games.png'
+import Img_8 from '../Imgs/Sun_news.png'
+import Img_9 from '../Imgs/gowsami.png'
+import Img_10 from '../Imgs/Tech_G.jpg'
+import Img_11 from '../Imgs/GTA_6.jpg'
+
 
 
 function Timeline() {
   const [posts, setPosts] = useState([
     {
+      id:1,
       user: "rockstargames",
+      userAvatar:Img_7,
       postImage:Img_5,
       likes: 54,
+      description:"Red Dead Redemption for Nintendo Switch and PlayStation 4 is now available from the Rockstar Store and other select retailers for both digital download and physical purchase.Get it now at store.rockstargames.com",
       timestamp: "2d",
     },
     {
+      id:2,
       user: "actorvijay",
+      userAvatar:Img_4,
       postImage:Img_4,
       likes: 500,
+      description:"Hello Nanbas and Nanbis 😊",
       timestamp: "1d",
     },
     {
+      id:3,
       user: "sunnews",
+      userAvatar:Img_8,
       postImage:Img_1,
       likes: 140,
+      description:"நன்றி.. நன்றி.. நன்றி..! ❤️To Subscribe: https://www.youtube.com/sunnewstamil",
       timestamp: "5d",
     },
     {
+      id: 4,
       user: "gowsami.dev",
-      postImage:Img_3,
+      userAvatar: Img_9,
+      postImage: Img_3,
       likes: 14,
+      description: "Javascript string methods🔥Post by: @decode_now @code_tune 🎯Hit the like button 💬Share your thoughts in the comments! 📁Save for future reference Till then Happy Coding 👨🏻‍💻 !!!------- #javascript #js #angularjs #reactjs #angular #web #webdeveloper #html #css #css3 #html5 #frontend #frontenddeveloper #vuejs #expressjs #nodejs #coder #coding #programmer #programming #software # #informationtechnology #java #python # php #codinggirl",
       timestamp: "6d",
     },
     {
+      id:5,
       user: "Techie Programmer",
+      userAvatar:Img_10,
       postImage:Img_2,
       likes: 18,
+      description:"60 front end ideas for web developers #programming #linux #python #google #data #webdev #google",
       timestamp: "5d",
     },
     {
+      id: 6,
       user: "gowsami.dev",
-      postImage:Img_6,
+      userAvatar: Img_9,
+      postImage: Img_6,
       likes: 2,
+      description: "Post by: @new_javascript, , , , , , , , , , , , #javascript #js #angularjs #reactjs #angular #web #webdeveloper #html #css #css3 #html5 #frontend #frontenddeveloper #vuejs #expressjs #nodejs #coder #coding #programmer #programming #software # #informationtechnology #java #python # php #codinggirl Removal of the post could be requested by the Copyright Holder of the property through DM. ©️ No copyright infringement intended.",
       timestamp: "6d",
+    },
+    {
+      id:1,
+      user: "rockstargames",
+      userAvatar:Img_7,
+      postImage:Img_11,
+      likes: 400,
+      description:"We are very excited to let you know that in early December, we will release the first trailer for the next Grand Theft Auto.",
+      timestamp: "2d",
     },
   ]);
 
@@ -61,7 +94,9 @@ function Timeline() {
               user={post.user}
               postImage={post.postImage}
               likes={post.likes}
+              description={post.description}
               timestamp={post.timestamp}
+              userAvatar={post.userAvatar}
             />
           ))}
         </div>

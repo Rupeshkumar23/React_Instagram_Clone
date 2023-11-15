@@ -67,6 +67,7 @@
 }
 .text_A{
   display: flex;
+ margin-left: -.6rem;
 }
 
 textarea {
@@ -80,7 +81,13 @@ textarea {
   resize: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+.post_P{
+  margin-top: 2px;
+  color: #0095f6;
+}
+.post_P:hover{
+  color: white;
+}
 .emoji {
   color: #9b9b9b;
   margin-left: 5px;

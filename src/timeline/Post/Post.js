@@ -9,9 +9,14 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 
 
-function Post({ user, postImage, likes, timestamp }) {
+function Post({ user, postImage, likes, timestamp, description,userAvatar}) {
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(likes);
+  const [comment, setComment] = useState("");
+
+  const handleCommentChange = (e) => {
+    setComment(e.target.value);
+  };
 
   const handleLike = () => {
     setIsLiked(!isLiked);
@@ -22,9 +27,19 @@ function Post({ user, postImage, likes, timestamp }) {
     <div className="post">
       <div className="post_header">
         <div className="post_headerAuthor">
-          <Avatar style={{ backgroundColor: '#ff4081', marginRight: '10px', borderRadius: '50%' }}>
+          <Avatar
+            style={{
+              backgroundColor: "#fff",
+              marginRight: "10px",
+              borderRadius: "50%",
+            }}
+          >
             {/* {user.charAt(0).toUpperCase()} */}
-            <img src={postImage} alt="UserAvatar" style={{ width: '100%', height: '100%', borderRadius: '50%' }} />
+            <img
+              src={userAvatar}
+              alt="UserAvatar"
+              style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit:"cover" }}
+            />
           </Avatar>{" "}
           {user} • <span>{timestamp}</span>
         </div>
@@ -37,10 +52,7 @@ function Post({ user, postImage, likes, timestamp }) {
         <div className="post_footerIcons">
           <div className="post_iconsMain">
             {isLiked ? (
-              <FavoriteIcon
-                className={`postIcon liked`}
-                onClick={handleLike}
-              />
+              <FavoriteIcon className={`postIcon liked`} onClick={handleLike} />
             ) : (
               <FavoriteBorderIcon
                 className={`postIcon ${isLiked ? "liked" : ""}`}
@@ -56,17 +68,28 @@ function Post({ user, postImage, likes, timestamp }) {
         </div>
         <span className="like-count">{likeCount} likes</span>
       </div>
-      <p style={{textAlign:'start' , }}>zuck Sharing an update on some of Meta's next generation infra to power new AI experiences…</p>
-       <div  style={{cursor:"pointer"}}>
-           <p style={{textAlign:"start" , color:"#A8A8A8"}}>View all 3,250 comments</p>
-           <p style={{textAlign:"start" , color:"#A8A8A8"}}>more</p>
-      <div className="text_A">
-      <textarea placeholder="Add a comment..."></textarea>
-      <span className="emoji" role="img" aria-label="smiley">☺</span>
+      <p style={{ textAlign: "start" }}>
+   {description}
+      </p>
+          
+      <div style={{ cursor: "pointer" }}>
+        <p style={{ textAlign: "start", color: "#A8A8A8" }}>
+          View all 3,250 comments
+        </p>
+        <p style={{ textAlign: "start", color: "#A8A8A8" }}>more</p>
+        <div className="text_A">
+          <textarea
+            placeholder="Add a comment..."
+            value={comment}
+            onChange={handleCommentChange}
+          ></textarea>
+          {comment.trim() !== "" && <span className="post_P">Post</span>}
+          <span className="emoji" role="img" aria-label="smiley">
+            ☺
+          </span>
+        </div>
+      </div>
     </div>
-       </div>
-    </div>
-    
   );
 }
 
