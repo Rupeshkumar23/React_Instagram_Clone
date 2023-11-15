@@ -20,6 +20,12 @@
   display: flex;
   flex-direction: column;
 }
+.sidenav_buttonText{
+  font-size: 18px;
+  color: #fff;
+  margin-left: 10px;
+  text-decoration: none;
+}
 
 .sidenav_button {
   display: flex;
@@ -33,6 +39,17 @@
   border-radius: 15px;
   width: 100%;
   position: relative;
+}
+.up_arrow{
+ position: relative;
+ color: #ffffff81;
+ border:1px solid #ffffff81;
+ border-radius: 5px;
+ left: 10.5rem;
+ visibility: hidden;
+}
+.sidenav_button:hover .up_arrow{
+  visibility: visible;
 }
 
 .sidenav_button:hover {
@@ -68,7 +85,7 @@
 .sidenav_more {
   margin-top: 18rem;
   position: fixed;
-  width: 14%;
+  width: 17.5%;
 }
 
 .logout_button {

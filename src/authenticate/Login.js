@@ -1,27 +1,49 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../firebase";
-import "./Login.css";
 import fb from "../Imgs/fb.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [fieldErrors, setFieldErrors] = useState({
+    email: false,
+    password: false,
+  });
+
+  const validateInputs = () => {
+    const errors = {
+      email: email.trim() === "",
+      password: password.trim() === "",
+    };
+
+    setFieldErrors(errors);
+
+    return Object.values(errors).some((value) => value);
+  };
 
   const handleLogin = async () => {
+    if (validateInputs()) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      toast.success("Login successful!");
     } catch (error) {
       // Handle specific errors
       if (error.code === "auth/invalid-email") {
-        setError("Invalid email address");
+        toast.error("Invalid email address");
       } else if (error.code === "auth/user-not-found") {
-        setError("User not found. Please check your email or sign up.");
+        toast.error("User not found. Please check your email or sign up.");
       } else if (error.code === "auth/wrong-password") {
-        setError("Incorrect password. Please try again.");
+        toast.error("Incorrect password. Please try again.");
       } else {
-        setError("Login failed. Please check your credentials.");
+        toast.error("Login failed. Please check your credentials.");
       }
     }
   };
@@ -38,17 +60,16 @@ function Login() {
           type="email"
           placeholder="Email"
           required
+          className={fieldErrors.email ? "error" : ""}
         />
         <input
           onChange={(e) => setPassword(e.target.value)}
           type="password"
           placeholder="Password"
           required
+          className={fieldErrors.password ? "error" : ""}
         />
         <button onClick={handleLogin}>Log in</button>
-
-        {/* Display error message if there's an error */}
-        {error && <p className="error-message">{error}</p>}
 
         <div>
           <div className="login_ordiv">
@@ -64,6 +85,7 @@ function Login() {
           <div className="login_forgot"> Forgot password?</div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }

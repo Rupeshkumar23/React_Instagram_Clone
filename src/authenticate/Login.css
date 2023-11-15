@@ -5,6 +5,8 @@
   padding: 50px;
   margin-right: 30px;
   margin-left: 30px;
+  width: 500px;
+  border-radius: 5px;
 }
 
 .login > img {
@@ -67,11 +69,12 @@
   line-height: 14px;
   margin-top: 12px;
   text-align: center;
+  
 }
 .loginPage_downloadSection {
   height: 105px;
   width: 350px;
-  margin-left: 17rem;
+  margin-left: 6rem;
   text-align: center;
   margin-top: 20px;
   cursor: pointer;
@@ -85,4 +88,7 @@
 .play{
   height: 50px;
   border-radius: 4px;
+}
+.login input.error {
+  border: 1px solid red;
 }
