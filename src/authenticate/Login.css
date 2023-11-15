@@ -39,3 +39,50 @@
 .login > button:hover {
   cursor: pointer;
 }
+.login_ordiv {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.login_dividor {
+  width: 80px;
+  height: 0px;
+  margin-top: 10px;
+  border:1px solid #dbdbdb5d;
+}
+.login_or {
+  margin: 0px 10px;
+  font-weight: bold;
+  color: #8E8E8E;
+}
+.login_fb {
+  color: #ffffff;
+  font-weight: bold;
+  margin-top: 30px;
+  text-align: center;
+}
+.login_forgot {
+  color: #c5c5c5;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 12px;
+  text-align: center;
+}
+.loginPage_downloadSection {
+  height: 105px;
+  width: 350px;
+  margin-left: 17rem;
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.loginPage_option {
+  margin-top: 20px;
+}
+.loginPage_dwimg {
+  margin: 5px;
+}
+.play{
+  height: 50px;
+  border-radius: 4px;
+}

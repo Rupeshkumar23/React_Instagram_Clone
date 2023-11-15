@@ -6,6 +6,8 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase";
+import GetappSignIn from "./GetappSignIn";
+
 
 function Signup() {
   const [email, setEmail] = useState("");
@@ -27,6 +29,7 @@ function Signup() {
       });
   };
   return (
+    <>
     <div className="signup">
       <img
         src="https://www.pngkey.com/png/full/828-8286178_mackeys-work-needs-no-elaborate-presentation-or-distracting.png"
@@ -37,21 +40,26 @@ function Signup() {
         type="email"
         placeholder="Email"
         value={email}
+        required
       />
       <input
         onChange={(e) => setUsername(e.target.value)}
         type="email"
         placeholder="Username"
         value={username}
+        required
       />
       <input
         onChange={(e) => setPassword(e.target.value)}
         type="password"
         placeholder="Password"
         value={password}
+        required
       />
       <button onClick={handleSignUp}>Sign up</button>
     </div>
+  <GetappSignIn/>
+    </>
   );
 }
 

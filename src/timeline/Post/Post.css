@@ -42,9 +42,26 @@
 
 .postIcon{
   padding: 7px;
-  font-size:2.5rem!important;;
+  font-size:2.8rem!important;;
 }
 
 .postIcon:hover {
   cursor: pointer;
+}
+.postIcon {
+  transition: color 0.2s ease-in-out;
+}
+
+.postIcon.liked {
+  animation: zoomIn 0.2s ease-in-out;
+  color: #FF3040;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
 }

@@ -1,13 +1,22 @@
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Avatar } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import "./Post.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 
 function Post({ user, postImage, likes, timestamp }) {
+  const [isLiked, setIsLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(likes);
+
+  const handleLike = () => {
+    setIsLiked(!isLiked);
+    setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
+  };
+
   return (
     <div className="post">
       <div className="post_header">
@@ -25,7 +34,17 @@ function Post({ user, postImage, likes, timestamp }) {
       <div className="post__footer">
         <div className="post_footerIcons">
           <div className="post_iconsMain">
-            <FavoriteBorderIcon className="postIcon" />
+            {isLiked ? (
+              <FavoriteIcon
+                className={`postIcon liked`}
+                onClick={handleLike}
+              />
+            ) : (
+              <FavoriteBorderIcon
+                className={`postIcon ${isLiked ? "liked" : ""}`}
+                onClick={handleLike}
+              />
+            )}
             <ChatBubbleOutlineIcon className="postIcon" />
             <TelegramIcon className="postIcon" />
           </div>
@@ -33,7 +52,7 @@ function Post({ user, postImage, likes, timestamp }) {
             <BookmarkBorderIcon className="postIcon" />
           </div>
         </div>
-        Liked by {likes}k people.
+        <span className="like-count">{likeCount} likes</span>
       </div>
     </div>
   );

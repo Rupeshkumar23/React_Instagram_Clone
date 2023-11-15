@@ -11,6 +11,7 @@ function Authenticate() {
   };
 
   return (
+    <>
     <div className="authenticate">
       <div className="auth_left">
         <img
@@ -37,6 +38,10 @@ function Authenticate() {
         </div>
       </div>
     </div>
+    <div>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt natus vel cumque consectetur provident eligendi itaque aspernatur est, id consequatur! Unde hic et assumenda eaque! Laudantium a sit deserunt rem?
+    </div>
+    </>
   );
 }
 

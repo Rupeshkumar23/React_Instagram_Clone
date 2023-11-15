@@ -8,14 +8,19 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 8px;
+    transition: .5s ease-in;
 }
-.avatar_box
+.avatar_box:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background-image: linear-gradient(80deg, #ffc800 25%, #ad00d4 35%, #D400C1 25%);
+}   
 .avatar_profile_image{
     width:50px;
     height: 50px;
     border-radius: 50%;
     margin: 3px;
-    border: 3px solid white;
+    /* border: 3px solid white; */
 }
 .carousel-status{
     padding: 16px 0px;
