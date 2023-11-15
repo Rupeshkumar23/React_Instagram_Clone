@@ -8,7 +8,7 @@
   border-right: 1px solid #ffffff3b;
   position: fixed;
   height: 100vh;
-  width: 14%;
+  width: 17.6%;
 }
 
 .sidenav_logo {
@@ -32,11 +32,13 @@
   padding: 10px 15px 10px 15px;
   border-radius: 15px;
   width: 100%;
+  position: relative;
 }
 
 .sidenav_button:hover {
   cursor: pointer;
-  width: 92%;
+  width: 94%;
+  transition: all 0.3s ease;
   background-color: rgba(255, 255, 255, 0.128);
 }
 
@@ -44,6 +46,23 @@
   font-size: 18px;
   font-weight:lighter;
   margin-left: 10px;
+}
+.Noti_B::after {
+  content: '1';
+  width: 20px;
+  height: 20px;
+  background: #FF3040;
+  position: absolute;
+  top: 0;
+  left: 2em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .sidenav_more {
