@@ -8,6 +8,7 @@ import Img_2 from '../Imgs/Tech.png'
 import Img_3 from '../Imgs/Go_S.png'
 import Img_4 from '../Imgs/V_J.png'
 import Img_5 from '../Imgs/Rock_S.png'
+import Img_6 from '../Imgs/Js.png'
 
 function Timeline() {
   const [posts, setPosts] = useState([
@@ -21,7 +22,7 @@ function Timeline() {
     {
       user: "actorvijay",
       postImage:Img_4,
-      likes: 432,
+      likes: 500,
       timestamp: "1d",
     },
     {
@@ -39,8 +40,14 @@ function Timeline() {
     {
       user: "Techie Programmer",
       postImage:Img_2,
-      likes: 14,
+      likes: 18,
       timestamp: "5d",
+    },
+    {
+      user: "gowsami.dev",
+      postImage:Img_6,
+      likes: 2,
+      timestamp: "6d",
     },
   ]);
 
