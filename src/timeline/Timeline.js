@@ -10,12 +10,12 @@ import Img_4 from '../Imgs/V_J.png'
 import Img_5 from '../Imgs/Rock_S.png'
 import Img_6 from '../Imgs/Js.png'
 
+
 function Timeline() {
   const [posts, setPosts] = useState([
     {
       user: "rockstargames",
-      postImage:
-      Img_5,
+      postImage:Img_5,
       likes: 54,
       timestamp: "2d",
     },

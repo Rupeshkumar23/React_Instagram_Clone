@@ -8,6 +8,7 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 
+
 function Post({ user, postImage, likes, timestamp }) {
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(likes);
@@ -21,8 +22,9 @@ function Post({ user, postImage, likes, timestamp }) {
     <div className="post">
       <div className="post_header">
         <div className="post_headerAuthor">
-          <Avatar style={{ marginRight: "10px" }}>
-            {user.charAt(0).toUpperCase()}
+          <Avatar style={{ backgroundColor: '#ff4081', marginRight: '10px', borderRadius: '50%' }}>
+            {/* {user.charAt(0).toUpperCase()} */}
+            <img src={postImage} alt="UserAvatar" style={{ width: '100%', height: '100%', borderRadius: '50%' }} />
           </Avatar>{" "}
           {user} • <span>{timestamp}</span>
         </div>
