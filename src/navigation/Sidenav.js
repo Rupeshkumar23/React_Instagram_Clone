@@ -17,6 +17,7 @@ import { auth } from "../firebase";
 import Button from "@mui/material/Button";
 import Popover from "@mui/material/Popover";
 import MenuItem from "@mui/material/MenuItem";
+import Img_1 from "../Imgs/Tech_G.jpg";
 
 function Sidenav() {
   const user = useSelector((state) => state.data.user.user);
@@ -85,10 +86,17 @@ function Sidenav() {
                 onClick={handleClick}
               >
                 <Avatar
-                  style={{ width: "25px", height: "25px", marginLeft: "16px" }}
+                  style={{
+                    width: "25px",
+                    height: "25px",
+                    marginLeft: "16px",
+                  }}
+                  alt="UserAvatar"
+                  src={Img_1}
                 >
                   {user.username ? user.username.slice(1).toUpperCase() : "A"}
                 </Avatar>
+
                 <span className="log_p">Profile </span>
               </Button>
               <Popover

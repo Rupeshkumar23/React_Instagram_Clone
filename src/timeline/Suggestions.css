@@ -1,3 +1,8 @@
+.Rightbar{
+margin-top: -7rem;
+z-index: 99;
+}
+
 .suggestions {
   margin-top: 30px;
   margin-right: 20px;
@@ -7,6 +12,8 @@
 .suggestions_title {
   color: grey;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 }
 
 .username_left {
@@ -33,6 +40,7 @@
 .follow_button {
   color: #0095f6;
   font-weight: bold;
+  font-size: 12px;
   background: 0;
   border: 0;
   margin-right: 5px;
@@ -40,6 +48,14 @@
 
 .follow_button:hover {
   color: white;
+  cursor: pointer;
+}
+.see_A{
+  color: white;
+  font-size: 13px;
+}
+.see_A:hover{
+  color: gray;
   cursor: pointer;
 }
 
