@@ -8,8 +8,16 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 
-
-function Post({ user, postImage, likes, timestamp, description,userAvatar}) {
+function Post({
+  user,
+  postImage,
+  likes,
+  comments,
+  timestamp,
+  description,
+  userAvatar,
+  tick,
+}) {
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(likes);
   const [comment, setComment] = useState("");
@@ -38,10 +46,28 @@ function Post({ user, postImage, likes, timestamp, description,userAvatar}) {
             <img
               src={userAvatar}
               alt="UserAvatar"
-              style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit:"cover" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
             />
           </Avatar>{" "}
-          {user} • <span>{timestamp}</span>
+          {user}
+          {tick && (
+            <img
+              src={tick}
+              alt="Verified"
+              style={{
+                width: "10%",
+                height: "10%",
+                borderRadius: "50%",
+                objectFit: "cover",
+              }}
+            />
+          )}
+          • <span>{timestamp}</span>
         </div>
         <MoreHorizIcon />
       </div>
@@ -68,13 +94,11 @@ function Post({ user, postImage, likes, timestamp, description,userAvatar}) {
         </div>
         <span className="like-count">{likeCount} likes</span>
       </div>
-      <p style={{ textAlign: "start" }}>
-   {description}
-      </p>
-          
+      <p style={{ textAlign: "start" }}>{description}</p>
+
       <div style={{ cursor: "pointer" }}>
         <p style={{ textAlign: "start", color: "#A8A8A8" }}>
-          View all 3,250 comments
+          View all {comments} comments
         </p>
         <p style={{ textAlign: "start", color: "#A8A8A8" }}>more</p>
         <div className="text_A">
