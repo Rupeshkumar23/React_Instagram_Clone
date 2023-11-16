@@ -30,7 +30,7 @@
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    overflow-x: scroll;
+    overflow-x: hidden;
     height: 119px;
     background-color: rgb(0, 0, 0);
     border-radius: 8px;
