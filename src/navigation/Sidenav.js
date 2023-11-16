@@ -2,11 +2,11 @@ import React from "react";
 import "./Sidenav.css";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
-import ExploreIcon from "@mui/icons-material/Explore";
+import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import SlideshowIcon from "@mui/icons-material/Slideshow";
-import ChatIcon from "@mui/icons-material/Chat";
+import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar } from "@mui/material";
@@ -42,7 +42,7 @@ function Sidenav() {
               <span>Search</span>
             </button>
             <button className="sidenav_button">
-              <ExploreIcon />
+              <ExploreOutlinedIcon />
               <span>Explore</span>
             </button>
             <button className="sidenav_button">
@@ -50,7 +50,7 @@ function Sidenav() {
               <span>Reels</span>
             </button>
             <button className="sidenav_button">
-              <ChatIcon />
+              <ChatOutlinedIcon />
               <span>Messages</span>
             </button>
             <button className="sidenav_button">
@@ -58,7 +58,7 @@ function Sidenav() {
               <span>Notifications</span>
             </button>
             <button className="sidenav_button">
-              <AddCircleOutlineIcon />
+              <AddBoxOutlinedIcon />
               <span>Create</span>
             </button>
             <button className="sidenav_button">
