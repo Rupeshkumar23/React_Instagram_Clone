@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Sidenav.css";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
-import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
+import ExploreOutlinedIcon from "@mui/icons-material/ExploreOutlined";
 import SlideshowIcon from "@mui/icons-material/Slideshow";
-import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
+import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import AddBoxOutlinedIcon from '@mui/icons-material/AddBoxOutlined';
+import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar } from "@mui/material";
@@ -14,6 +14,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
 import { logoutUser } from "../features/userSlice";
 import { auth } from "../firebase";
+import Button from "@mui/material/Button";
+import Popover from "@mui/material/Popover";
+import MenuItem from "@mui/material/MenuItem";
 
 function Sidenav() {
   const user = useSelector((state) => state.data.user.user);
@@ -22,6 +25,18 @@ function Sidenav() {
     dispatch(logoutUser());
     signOut(auth);
   };
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+
   return (
     <>
       <div className="main">
@@ -61,17 +76,50 @@ function Sidenav() {
               <AddBoxOutlinedIcon />
               <span>Create</span>
             </button>
-            <button className="sidenav_button">
-              <Avatar>
-                {user.username ? user.username.slice(0, 2).toUpperCase() : "A"}
-              </Avatar>
-              <span>
-                {user.username}{" "}
-                <button onClick={handelLogout} className="logout_button">
+            <div className="sidenav_button1 pop_bg">
+              <Button
+                id="demo-positioned-button"
+                aria-controls={open ? "demo-positioned-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+              >
+                <Avatar
+                  style={{ width: "25px", height: "25px", marginLeft: "16px" }}
+                >
+                  {user.username ? user.username.slice(1).toUpperCase() : "A"}
+                </Avatar>
+                <span className="log_p">Profile </span>
+              </Button>
+              <Popover
+                id="demo-positioned-popover"
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                sx={{
+                  "& .MuiPaper-root": {
+                    backgroundColor: "black",
+                    color: "white",
+                    border: "1px solid white",
+                  },
+                }}
+              >
+                <MenuItem className="Menu_C" onClick={handleClose}>
+                  Settings
+                </MenuItem>
+                <MenuItem className="Menu_C" onClick={handelLogout}>
                   Logout
-                </button>
-              </span>
-            </button>
+                </MenuItem>
+              </Popover>
+            </div>
           </div>
         </div>
         <div className="sidenav_more">

@@ -58,11 +58,20 @@
   transition: all 0.3s ease;
   background-color: rgba(255, 255, 255, 0.128);
 }
-
+.sidenav_button1:hover{
+  cursor: pointer;
+  width: 94%;
+  border-radius:15px;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.128);
+}
 .sidenav_button > span {
   font-size: 18px;
   font-weight:lighter;
   margin-left: 10px;
+}
+.Menu_C:hover{
+background: rgba(255, 255, 255, 0.316);
 }
 .Noti_B::after {
   content: '1';
@@ -88,6 +97,13 @@
   width: 17.5%;
 }
 
+.log_p{
+  color: white;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin-left:10px;
+}
+
 .logout_button {
   font-size: 15px;
   border-radius: 10px;
@@ -95,7 +111,9 @@
   color: white;
   background-color: rgba(255, 255, 255, 0.211);
   border: 0;
+  width: 200px;
   padding: 10px;
+  margin-top: 20px;
 }
 
 .logout_button:hover {
