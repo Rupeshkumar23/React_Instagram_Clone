@@ -32,8 +32,8 @@ function App() {
   return (
     <div className="app">
       {isLoading ? (
-        <div class="loader-container">
-          <div class="loader"></div>
+        <div className="loader-container">
+          <div className="loader"></div>
         </div>
       ) : (
         <>{user ? <Homepage /> : <Authenticate />}</>

@@ -4,7 +4,7 @@ const Avatar = ({image}) => {
   return (
     <section className='avatar_detail'>
       <div className='avatar_box'>
-        <img class="avatar_profile_image" src={image.img} alt="" />
+        <img className="avatar_profile_image" src={image.img} alt="" />
       </div>
       <p className='avatar_name'>{image.name}</p>
     </section>
