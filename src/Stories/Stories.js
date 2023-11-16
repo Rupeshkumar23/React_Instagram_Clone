@@ -38,8 +38,8 @@ const Stories = () => {
         <ChevronRightIcon />
       </div>
       <div className="carousel-body">
-        {statusCarousel.map((item) => {
-          return <Avatar key={item} image={item} />;
+        {statusCarousel.map((item,id) => {
+          return <Avatar key={id} image={item} />;
         })}
       </div>
     </section>

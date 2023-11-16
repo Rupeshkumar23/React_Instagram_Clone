@@ -109,7 +109,7 @@ function Timeline() {
         <div className="timeline_posts">
           {posts.map((post, id) => (
             <Post
-              key={id}
+              key={post.id}
               user={post.user}
               postImage={post.postImage}
               likes={post.likes}
