@@ -2,7 +2,7 @@
     width: 55px;
     height: 55px;
     aspect-ratio: 1/1;
-    background-image: linear-gradient(30deg, #ffc800 25%, #D400C1 55%);
+    background-image: linear-gradient(30deg, #ff8800 25%, #D400C1 55%);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -13,7 +13,7 @@
 .avatar_box:hover{
     transform: scale(1.1);
     cursor: pointer;
-    background-image: linear-gradient(80deg, #ffc800 25%, #ad00d4 35%, #D400C1 25%);
+    background-image: linear-gradient(80deg, #ff8800 25%, #ad00d4 35%, #D400C1 25%);
 }   
 .avatar_profile_image{
     width:50px;

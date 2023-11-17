@@ -95,6 +95,7 @@ function Sidenav() {
                   src={Img_1}
                 >
                   {user.username ? user.username.slice(1).toUpperCase() : "A"}
+               
                 </Avatar>
 
                 <span className="log_p">Profile </span>

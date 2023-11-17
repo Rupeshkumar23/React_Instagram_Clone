@@ -116,7 +116,7 @@ function Timeline() {
               description={post.description}
               timestamp={post.timestamp}
               userAvatar={post.userAvatar}
-              comments={post.comments}
+              comments1={post.comments}
               tick={post.tickmark}
             />
           ))}

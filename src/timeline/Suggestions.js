@@ -4,8 +4,10 @@ import "./Suggestions.css";
 import Img1 from "../Imgs/Marvel.jpg";
 import Img2 from "../Imgs/Sony_Music.jpg";
 import Img3 from '../Imgs/Tech_G.jpg'
+import { useSelector } from "react-redux";
 
 function Suggestions() {
+  const user = useSelector((state) => state.data.user.user);
   return (
     <>
     <div className="Rightbar">
@@ -13,7 +15,7 @@ function Suggestions() {
         style={{
           display: "flex",
           alignItems: "center",
-          marginLeft: 20,
+          marginLeft: -30,
           marginTop: 30,
           cursor: "pointer",
           marginBottom:50,
@@ -30,9 +32,9 @@ function Suggestions() {
           alt=""
         />
         <div style={{ marginLeft: 10,marginBottom:"2px" }}>
-          <p style={{ textAlign: "start"  }}>R_-_K</p>
+          <p style={{ textAlign: "start"  }}> {user.username}</p>
           <p style={{ marginTop: '5px', textAlign: "start", color: "#A8A8A8" }}>
-            Rupeshkumar
+           {user.email}
           </p>
         </div>
         <div style={{ marginLeft: "127px", cursor: "pointer" }}>
