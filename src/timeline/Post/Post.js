@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
+
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Avatar } from "@mui/material";
-import React, { useState} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Post.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -12,7 +13,6 @@ import { useSelector } from "react-redux";
 import user_Av from '../../Imgs/Tech_G.jpg';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
-
 function Post({
   user,
   postImage,
@@ -31,12 +31,13 @@ function Post({
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [isEmojiPickerVisible, setEmojiPickerVisibility] = useState(false);
 
+  const emojiPickerRef = useRef(null);
+
   const addEmoji = (e) => {
     const sym = e.unified.split("_").map((el) => parseInt(el, 16));
-const emoji = String.fromCodePoint(...sym);
-setChosenEmoji(emoji);
-setComment(comment + emoji);
-
+    const emoji = String.fromCodePoint(...sym);
+    setChosenEmoji(emoji);
+    setComment(comment + emoji);
   };
 
   const handleCommentChange = (e) => {
@@ -68,6 +69,23 @@ setComment(comment + emoji);
   const toggleEmojiPickerVisibility = () => {
     setEmojiPickerVisibility(!isEmojiPickerVisible);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (emojiPickerRef.current && !emojiPickerRef.current.contains(event.target)) {
+        // Clicked outside the emoji picker, close it
+        setEmojiPickerVisibility(false);
+      }
+    };
+
+    // Attach the event listener when the component mounts
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Detach the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [emojiPickerRef]);
 
   return (
     <div className="post">
@@ -155,6 +173,7 @@ setComment(comment + emoji);
             <b>{comment.username}</b><span style={{ marginLeft: '.4rem' }}>{comment.comment}</span>
           </p>
         ))}
+
         <div className="text_A">
           <textarea
             placeholder="Add a comment..."
@@ -174,17 +193,17 @@ setComment(comment + emoji);
           >
             ☺
           </span>
-          <div className="pick_emoji">
-          {isEmojiPickerVisible && (
-            <Picker
-              data={data}
-              emojiSize={20}
-              emojiButtonSize={28}
-              onEmojiSelect={addEmoji}
-              navPosition="top"
-              previewPosition="none"
-            />
-          )}
+          <div className="pick_emoji" ref={emojiPickerRef}>
+            {isEmojiPickerVisible && (
+              <Picker
+                data={data}
+                emojiSize={20}
+                emojiButtonSize={28}
+                onEmojiSelect={addEmoji}
+                navPosition="top"
+                previewPosition="none"
+              />
+            )}
           </div>
         </div>
       </div>
