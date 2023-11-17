@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Avatar } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "./Post.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -174,14 +174,18 @@ setComment(comment + emoji);
           >
             ☺
           </span>
+          <div className="pick_emoji">
           {isEmojiPickerVisible && (
             <Picker
               data={data}
               emojiSize={20}
               emojiButtonSize={28}
               onEmojiSelect={addEmoji}
+              navPosition="top"
+              previewPosition="none"
             />
           )}
+          </div>
         </div>
       </div>
     </div>

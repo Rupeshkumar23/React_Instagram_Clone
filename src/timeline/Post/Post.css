@@ -66,8 +66,9 @@
   }
 }
 .text_A{
-  display: flex;
+ display: flex;
  margin-left: -.6rem;
+ position: relative;
 }
 
 textarea {
@@ -94,3 +95,8 @@ textarea {
   font-size: 18px;
 }
 
+.pick_emoji{
+  position: absolute;
+  left: 36rem;
+  top:-26rem;
+}
