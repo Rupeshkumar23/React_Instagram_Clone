@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Avatar } from "@mui/material";
 import React, { useState } from "react";
@@ -8,7 +9,9 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { useSelector } from "react-redux";
-import user_Av from '../../Imgs/Tech_G.jpg'
+import user_Av from '../../Imgs/Tech_G.jpg';
+import data from '@emoji-mart/data';
+import Picker from '@emoji-mart/react';
 
 function Post({
   user,
@@ -25,6 +28,16 @@ function Post({
   const [likeCount, setLikeCount] = useState(likes);
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
+  const [chosenEmoji, setChosenEmoji] = useState(null);
+  const [isEmojiPickerVisible, setEmojiPickerVisibility] = useState(false);
+
+  const addEmoji = (e) => {
+    const sym = e.unified.split("_").map((el) => parseInt(el, 16));
+const emoji = String.fromCodePoint(...sym);
+setChosenEmoji(emoji);
+setComment(comment + emoji);
+
+  };
 
   const handleCommentChange = (e) => {
     setComment(e.target.value);
@@ -34,13 +47,13 @@ function Post({
     const newComment = {
       postid: "7823131",
       username: user1.username,
-      comment: comment, 
+      comment: comment,
       profile:
         "https://images.pexels.com/photos/2646841/pexels-photo-2646841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     };
 
     setComments([...comments, newComment]);
-    setComment(""); 
+    setComment("");
   };
 
   const handlecomment = () => {
@@ -50,6 +63,10 @@ function Post({
   const handleLike = () => {
     setIsLiked(!isLiked);
     setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
+  };
+
+  const toggleEmojiPickerVisibility = () => {
+    setEmojiPickerVisibility(!isEmojiPickerVisible);
   };
 
   return (
@@ -63,7 +80,6 @@ function Post({
               borderRadius: "50%",
             }}
           >
-            {/* {user.charAt(0).toUpperCase()} */}
             <img
               src={userAvatar}
               alt="UserAvatar"
@@ -116,17 +132,16 @@ function Post({
         <span className="like-count">{likeCount} likes</span>
       </div>
       <p style={{ textAlign: "start" }}>{description}</p>
-     
 
       <div style={{ cursor: "pointer" }}>
-      <p style={{ textAlign: "start", color: "#A8A8A8" }}>more</p>
+        <p style={{ textAlign: "start", color: "#A8A8A8" }}>more</p>
         <p style={{ textAlign: "start", color: "#A8A8A8" }}>
           View all {comments1} comments
         </p>
-      
+
         {comments.map((comment, index) => (
-          <p key={index} style={{ marginTop:'.5rem',display:'flex', color: "#fff" }}>
-           <img
+          <p key={index} style={{ marginTop: '.5rem', display: 'flex', color: "#fff" }}>
+            <img
               src={user_Av}
               alt="Verified"
               style={{
@@ -134,10 +149,10 @@ function Post({
                 height: "4%",
                 borderRadius: "50%",
                 objectFit: "cover",
-                marginRight:".5rem"
+                marginRight: ".5rem"
               }}
             />
-        <b>{comment.username}</b><span style={{marginLeft:'.4rem'}}>{comment.comment}</span>
+            <b>{comment.username}</b><span style={{ marginLeft: '.4rem' }}>{comment.comment}</span>
           </p>
         ))}
         <div className="text_A">
@@ -151,9 +166,22 @@ function Post({
               Post
             </span>
           )}
-          <span className="emoji" role="img" aria-label="smiley">
+          <span
+            className="emoji"
+            role="img"
+            aria-label="smiley"
+            onClick={toggleEmojiPickerVisibility}
+          >
             ☺
           </span>
+          {isEmojiPickerVisible && (
+            <Picker
+              data={data}
+              emojiSize={20}
+              emojiButtonSize={28}
+              onEmojiSelect={addEmoji}
+            />
+          )}
         </div>
       </div>
     </div>
