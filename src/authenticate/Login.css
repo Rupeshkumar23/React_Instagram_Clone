@@ -1,12 +1,30 @@
 .login {
+  background: linear-gradient(#212121, #000000) padding-box,
+  linear-gradient(145deg, transparent 35%,#e81cff,#F56040,#ffdd00) border-box;
   display: flex;
   flex-direction: column;
-  border: 1px solid grey;
   padding: 50px;
   margin-right: 30px;
   margin-left: 30px;
   width: 500px;
-  border-radius: 5px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-size: 200% 100%;
+  border: 2px solid transparent;
+  animation: gradient 2s cubic-bezier(.45,.05,.55,.95) infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 200% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .login > img {
@@ -91,4 +109,16 @@
 }
 .login input.error {
   border: 1px solid red;
+}
+
+
+
+
+
+.form-container {
+  width: 550px;
+ 
+
+
+
 }

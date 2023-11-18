@@ -17,17 +17,20 @@
 .auth_left > img {
   width: 400px;
   margin-top: 40px;
+  filter: drop-shadow(1px 1px 1rem  #ffffff5d);
 }
 
 .auth_more {
-  border: 1px solid grey;
+  border-width: 2px; 
+  border-style: dotted;
+  border-image: linear-gradient(45deg, #e81cff, #f56040, #ffdd00) 1;
   padding: 20px;
   margin-right: 30px;
   margin-left: 30px;
   margin-top: 13px;
   text-align: center;
-  border-radius: 5px;
   width: 500px;
+  background: linear-gradient(#212121, #000000);
 }
 
 .auth_more > span {
@@ -76,7 +79,6 @@
   color:#ffffff7b;
 }
 
-/* Additional styling for the select element */
 #languages {
   margin-top: 8px;
   padding: 3px;
