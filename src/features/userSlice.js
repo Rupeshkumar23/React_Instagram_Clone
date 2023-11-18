@@ -1,7 +1,9 @@
+// userSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
+  avatarURL: null, // Add avatarURL in the initial state
   isLoading: true,
 };
 
@@ -14,11 +16,15 @@ export const userSlice = createSlice({
     },
     logoutUser: (state) => {
       state.user = null;
+      state.avatarURL = null; // Clear avatarURL on logout
     },
     setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
+    setAvatarURL: (state, action) => {
+      state.avatarURL = action.payload;
+    },
   },
 });
 
-export const { loginUser, logoutUser, setLoading } = userSlice.actions;
+export const { loginUser, logoutUser, setLoading, setAvatarURL } = userSlice.actions;

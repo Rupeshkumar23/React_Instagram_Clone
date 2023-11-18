@@ -3,7 +3,8 @@ import React from "react";
 import "./Suggestions.css";
 import Img1 from "../Imgs/Marvel.jpg";
 import Img2 from "../Imgs/Sony_Music.jpg";
-import Img3 from '../Imgs/Tech_G.jpg'
+
+
 import { useSelector } from "react-redux";
 
 function Suggestions() {
@@ -22,7 +23,7 @@ function Suggestions() {
         }}
       >
         <img
-          src={Img3}
+          src={user.avatarURL}
           style={{
             width: "50px",
             height: "50px",

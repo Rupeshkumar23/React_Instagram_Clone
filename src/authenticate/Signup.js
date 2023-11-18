@@ -1,18 +1,24 @@
+// Signup.js
 import React, { useState } from "react";
-import "./Signup.css";
-import {
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import { auth } from "../firebase";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import {auth} from "../firebase";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../features/userSlice";
+import { setAvatarURL } from "../features/userSlice"; // Add this import
 import GetappSignIn from "./GetappSignIn";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { storage } from "../firebase";
+import './Signup.css'
 
 function Signup() {
+  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [avatar, setAvatar] = useState(null);
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState({
@@ -42,19 +48,28 @@ function Signup() {
     }
 
     try {
+      let avatarURL = "";
+      if (avatar) {
+        const storageRef = ref(storage, `avatars/${email}_${avatar.name}`);
+        await uploadBytes(storageRef, avatar);
+        avatarURL = await getDownloadURL(storageRef);
+      }
+
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
       await updateProfile(user, {
         displayName: username,
+        photoURL: avatarURL,
       });
 
-      // You can customize the success message and styling
+      dispatch(loginUser({ uid: user.uid, email, username, avatarURL }));
+      dispatch(setAvatarURL(avatarURL));
+
       setError(null);
       setSuccessMessage("User signed up successfully");
       toast.success(successMessage);
     } catch (err) {
-      // Handle specific errors
       if (err.code === "auth/invalid-email") {
         setError("Invalid email address. Please enter a valid email.");
       } else if (err.code === "auth/weak-password") {
@@ -96,6 +111,11 @@ function Signup() {
           value={password}
           required
           className={fieldErrors.password ? "error" : ""}
+        />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => setAvatar(e.target.files[0])}
         />
         <button onClick={handleSignUp}>Sign up</button>
         <ToastContainer />

@@ -17,10 +17,10 @@ import { auth } from "../firebase";
 import Button from "@mui/material/Button";
 import Popover from "@mui/material/Popover";
 import MenuItem from "@mui/material/MenuItem";
-import Img_1 from "../Imgs/Tech_G.jpg";
 
 function Sidenav() {
   const user = useSelector((state) => state.data.user.user);
+  console.log(user.avatarURL)
   const dispatch = useDispatch();
   const handelLogout = () => {
     dispatch(logoutUser());
@@ -92,7 +92,7 @@ function Sidenav() {
                     marginLeft: "16px",
                   }}
                   alt="UserAvatar"
-                  src={Img_1}
+                  src={user.avatarURL}
                 >
                   {user.username ? user.username.slice(1).toUpperCase() : "A"}
                
