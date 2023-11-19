@@ -262,7 +262,8 @@ function Post({
                   <div style={{ display: "flex", marginLeft: 30 }}>
                     <img
                       key={id}
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVVIYDt6bSnhK21l1e1eGY0FnEBcTkTYeyEgEL53gv&s"
+                      // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVVIYDt6bSnhK21l1e1eGY0FnEBcTkTYeyEgEL53gv&s"
+                      src={user1.avatarURL}
                       style={{
                         width: 30,
                         height: 30,
