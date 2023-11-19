@@ -14,6 +14,11 @@ import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import Modal from "react-modal";
 import Emoji1 from "../../Imgs/Emoji.png";
+import Img_10 from "../../Imgs/Tech_G.jpg";
+import { statusCarousel } from "../../Stories/data";
+import 'simplebar/dist/simplebar.min.css';
+
+
 function Post({
   user,
   postImage,
@@ -24,6 +29,13 @@ function Post({
   userAvatar,
   tick,
 }) {
+  // Take only the first four items from the array
+  const firstFourStatuses = statusCarousel.slice(0, 4);
+
+  // Access each image separately
+  const firstImage = firstFourStatuses[0].img;
+  const secondImage = firstFourStatuses[1].img;
+  const fourthImage = firstFourStatuses[3].img;
   const user1 = useSelector((state) => state.data.user.user);
   const [modalIsOpen, setmodalIsOpen] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
@@ -283,7 +295,7 @@ function Post({
 
                 <div style={{ display: "flex", marginTop: 10, marginLeft: 30 }}>
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVVIYDt6bSnhK21l1e1eGY0FnEBcTkTYeyEgEL53gv&s"
+                    src={Img_10}
                     style={{
                       width: 40,
                       height: 40,
@@ -294,13 +306,11 @@ function Post({
                     alt="A_V"
                   />
                   <div style={{ marginLeft: 20 }}>
-                    <p>Suman</p>
+                    <p>Techie Programmer</p>
                     <p style={{ marginTop: 8 }}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Tempore hic blanditiis asperiores sint, odit odio nemo
-                      dolore reiciendis necessitatibus assumenda corporis.
-                      Corporis doloribus aspernatur eligendi, praesentium
-                      delectus quam reiciendis labore.
+                      dolore reiciendis necessitatibus assumenda corporis.🧑🏻‍💻
                     </p>
                     <p style={{ color: "#A8A8A8", marginTop: 10 }}>1d</p>
                   </div>
@@ -308,7 +318,7 @@ function Post({
 
                 <div style={{ display: "flex", marginTop: 10, marginLeft: 30 }}>
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVVIYDt6bSnhK21l1e1eGY0FnEBcTkTYeyEgEL53gv&s"
+                    src={firstImage}
                     style={{
                       width: 40,
                       height: 40,
@@ -319,13 +329,11 @@ function Post({
                     alt="A_V"
                   />
                   <div style={{ marginLeft: 20 }}>
-                    <p>Suman</p>
+                    <p>Rajan</p>
                     <p style={{ marginTop: 15 }}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Tempore hic blanditiis asperiores sint, odit odio nemo
-                      dolore reiciendis necessitatibus assumenda corporis.
-                      Corporis doloribus aspernatur eligendi, praesentium
-                      delectus quam reiciendis labore.
+                      dolore reiciendis necessitatibus assumenda corporis.🧑🏻🔥🔥🔥
                     </p>
                     <p style={{ color: "#A8A8A8", marginTop: 10 }}>1d</p>
                   </div>
@@ -333,7 +341,7 @@ function Post({
 
                 <div style={{ display: "flex", marginLeft: 30 }}>
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVVIYDt6bSnhK21l1e1eGY0FnEBcTkTYeyEgEL53gv&s"
+                    src={secondImage}
                     style={{
                       width: 40,
                       height: 40,
@@ -344,13 +352,11 @@ function Post({
                     alt="A_V"
                   />
                   <div style={{ marginLeft: 20 }}>
-                    <p>Suman</p>
+                    <p>Ethan</p>
                     <p style={{ marginTop: 15 }}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Tempore hic blanditiis asperiores sint, odit odio nemo
-                      dolore reiciendis necessitatibus assumenda corporis.
-                      Corporis doloribus aspernatur eligendi, praesentium
-                      delectus quam reiciendis labore.
+                      dolore reiciendis necessitatibus assumenda corporis.🗞️
                     </p>
                     <p style={{ color: "#A8A8A8", marginTop: 10 }}>1d</p>
                   </div>
@@ -358,7 +364,7 @@ function Post({
 
                 <div style={{ display: "flex", marginLeft: 30 }}>
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVVIYDt6bSnhK21l1e1eGY0FnEBcTkTYeyEgEL53gv&s"
+                    src={fourthImage}
                     style={{
                       width: 40,
                       height: 40,
@@ -369,13 +375,11 @@ function Post({
                     alt=""
                   />
                   <div style={{ marginLeft: 20 }}>
-                    <p>Suman</p>
+                    <p>Layla</p>
                     <p style={{ marginTop: 15 }}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Tempore hic blanditiis asperiores sint, odit odio nemo
-                      dolore reiciendis necessitatibus assumenda corporis.
-                      Corporis doloribus aspernatur eligendi, praesentium
-                      delectus quam reiciendis labore.
+                      dolore reiciendis necessitatibus assumenda corporis.🎮
                     </p>
                     <p style={{ color: "#A8A8A8", marginTop: 10 }}>1d</p>
                   </div>
@@ -529,6 +533,7 @@ function Post({
         ))}
 
         <div className="text_A">
+          
           <textarea
             placeholder="Add a comment..."
             value={comment}
