@@ -91,8 +91,9 @@ function Login() {
           </div>
 
           <div className="login_fb">
+            <a style={{textDecoration:'none',color:'white'}} href="https://www.facebook.com/" target="_blank" rel="noreferrer">
             <img src={fb} width="15px" alt="meta" style={{ marginRight: "5px" }} />
-            Log in with Facebook
+            Log in with Facebook</a>
           </div>
           <div className="login_forgot"> Forgot password?</div>
         </div>

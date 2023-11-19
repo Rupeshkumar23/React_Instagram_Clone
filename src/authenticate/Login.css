@@ -87,7 +87,7 @@
   line-height: 14px;
   margin-top: 12px;
   text-align: center;
-  
+  cursor: pointer;
 }
 .loginPage_downloadSection {
   height: 105px;

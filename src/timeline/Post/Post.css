@@ -100,3 +100,33 @@ textarea {
   left: 36rem;
   top:-26rem;
 }
+
+.modalclassNameforAPost{
+  width: 70%;
+  height: 92vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 12px;
+  border: none;
+  background-color: #000000;
+  margin-top: 25px;
+  border: none;
+  z-index: 999;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.scrollable-div{
+  height:65vh;
+  overflow:auto
+}
+
+.scrollable-div::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+}
+.scrollable-div::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
