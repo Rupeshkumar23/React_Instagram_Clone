@@ -258,10 +258,10 @@ function Post({
               />
 
               <div className="scrollable-div">
-                {comments.map((item, id) => (
+                {comments.map((comment, index) => (
                   <div style={{ display: "flex", marginLeft: 30 }}>
                     <img
-                      key={id}
+                      key={index}
                       // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVVIYDt6bSnhK21l1e1eGY0FnEBcTkTYeyEgEL53gv&s"
                       src={user1.avatarURL}
                       style={{
@@ -274,8 +274,8 @@ function Post({
                       alt="A_V"
                     />
                     <div style={{ marginLeft: 10 }}>
-                      <p style={{ marginTop: 20 }}>{item.username}</p>
-                      <p style={{ marginTop: 10 }}>{item.comment}</p>
+                      <p style={{ marginTop: 20 }}>{comment.username}</p>
+                      <p style={{ marginTop: 10 }}>{comment.comment}</p>
                       <p style={{ color: "#A8A8A8", marginTop: 5 }}>1d</p>
                     </div>
                   </div>
