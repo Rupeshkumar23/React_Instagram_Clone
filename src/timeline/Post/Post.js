@@ -32,12 +32,22 @@ function Post({
   const [comments, setComments] = useState([]);
   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [isEmojiPickerVisible, setEmojiPickerVisibility] = useState(false);
-
+  const [isMainEmojiPickerVisible, setMainEmojiPickerVisibility] =
+    useState(false);
+  const [isModalEmojiPickerVisible, setModalEmojiPickerVisibility] =
+    useState(false);
   const emojiPickerRef = useRef(null);
   const emojiPickerRef_M = useRef(null);
 
   const handleShowmodal = () => {
     setmodalIsOpen(true);
+  };
+  const toggleMainEmojiPickerVisibility = () => {
+    setMainEmojiPickerVisibility(!isMainEmojiPickerVisible);
+  };
+
+  const toggleModalEmojiPickerVisibility = () => {
+    setModalEmojiPickerVisibility(!isModalEmojiPickerVisible);
   };
 
   const addEmoji = (e) => {
@@ -83,8 +93,16 @@ function Post({
         emojiPickerRef.current &&
         !emojiPickerRef.current.contains(event.target)
       ) {
-        // Clicked outside the emoji picker, close it
-        setEmojiPickerVisibility(false);
+        // Clicked outside the main emoji picker, close it
+        setMainEmojiPickerVisibility(false);
+      }
+
+      if (
+        emojiPickerRef_M.current &&
+        !emojiPickerRef_M.current.contains(event.target)
+      ) {
+        // Clicked outside the emoji picker inside the modal, close it
+        setModalEmojiPickerVisibility(false);
       }
     };
 
@@ -95,7 +113,7 @@ function Post({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [emojiPickerRef]);
+  }, [emojiPickerRef, emojiPickerRef_M]);
 
   return (
     <div className="post">
@@ -168,6 +186,7 @@ function Post({
       <Modal
         style={{ overlay: { backgroundColor: "#2e2b2bc7" } }}
         isOpen={modalIsOpen}
+        ariaHideApp={false}
         onRequestClose={() => setmodalIsOpen(false)}
         className={"modalclassNameforAPost"}
       >
@@ -410,6 +429,7 @@ function Post({
                   marginLeft: "10px",
                   marginTop: 10,
                 }}
+                className="emoji_M"
               >
                 1 DAY AGO
               </p>
@@ -426,7 +446,7 @@ function Post({
               <div className="text_A" style={{ marginTop: "10px" }}>
                 <img
                   className="emoji"
-                  onClick={toggleEmojiPickerVisibility}
+                  onClick={toggleModalEmojiPickerVisibility}
                   src={Emoji1}
                   style={{
                     width: 24,
@@ -456,8 +476,8 @@ function Post({
                   </span>
                 )}
 
-                <div className="pick_emoji" ref={emojiPickerRef_M}>
-                  {isEmojiPickerVisible && (
+                <div className="pick_emoj_M" ref={emojiPickerRef_M}>
+                  {isModalEmojiPickerVisible && (
                     <Picker
                       data={data}
                       emojiSize={20}
@@ -522,12 +542,12 @@ function Post({
             className="emoji"
             role="img"
             aria-label="smiley"
-            onClick={toggleEmojiPickerVisibility}
+            onClick={toggleMainEmojiPickerVisibility}
           >
             ☺
           </span>
           <div className="pick_emoji" ref={emojiPickerRef}>
-            {isEmojiPickerVisible && (
+            {isMainEmojiPickerVisible && (
               <Picker
                 data={data}
                 emojiSize={20}
