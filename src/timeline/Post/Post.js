@@ -10,7 +10,6 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { useSelector } from "react-redux";
-import user_Av from '../../Imgs/Tech_G.jpg';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 function Post({
@@ -160,7 +159,7 @@ function Post({
         {comments.map((comment, index) => (
           <p key={index} style={{ marginTop: '.5rem', display: 'flex', color: "#fff" }}>
             <img
-              src={user_Av}
+              src={user1.avatarURL}
               alt="Verified"
               style={{
                 width: "4%",
