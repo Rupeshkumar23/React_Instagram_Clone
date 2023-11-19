@@ -16,8 +16,6 @@ import Modal from "react-modal";
 import Emoji1 from "../../Imgs/Emoji.png";
 import Img_10 from "../../Imgs/Tech_G.jpg";
 import { statusCarousel } from "../../Stories/data";
-import 'simplebar/dist/simplebar.min.css';
-
 
 function Post({
   user,
@@ -308,7 +306,7 @@ function Post({
                   <div style={{ marginLeft: 20 }}>
                     <p>Techie Programmer</p>
                     <p style={{ marginTop: 8 }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Tempore hic blanditiis asperiores sint, odit odio nemo
                       dolore reiciendis necessitatibus assumenda corporis.🧑🏻‍💻
                     </p>
@@ -331,9 +329,10 @@ function Post({
                   <div style={{ marginLeft: 20 }}>
                     <p>Rajan</p>
                     <p style={{ marginTop: 15 }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Tempore hic blanditiis asperiores sint, odit odio nemo
-                      dolore reiciendis necessitatibus assumenda corporis.🧑🏻🔥🔥🔥
+                      dolore reiciendis necessitatibus assumenda
+                      corporis.🧑🏻🔥🔥🔥
                     </p>
                     <p style={{ color: "#A8A8A8", marginTop: 10 }}>1d</p>
                   </div>
@@ -354,7 +353,7 @@ function Post({
                   <div style={{ marginLeft: 20 }}>
                     <p>Ethan</p>
                     <p style={{ marginTop: 15 }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Tempore hic blanditiis asperiores sint, odit odio nemo
                       dolore reiciendis necessitatibus assumenda corporis.🗞️
                     </p>
@@ -377,7 +376,7 @@ function Post({
                   <div style={{ marginLeft: 20 }}>
                     <p>Layla</p>
                     <p style={{ marginTop: 15 }}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Tempore hic blanditiis asperiores sint, odit odio nemo
                       dolore reiciendis necessitatibus assumenda corporis.🎮
                     </p>
@@ -533,7 +532,6 @@ function Post({
         ))}
 
         <div className="text_A">
-          
           <textarea
             placeholder="Add a comment..."
             value={comment}
