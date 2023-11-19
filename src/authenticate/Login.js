@@ -1,12 +1,15 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../firebase";
+import { loginUser, setAvatarURL } from "../features/userSlice";
 import fb from "../Imgs/fb.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Login.css";
+import { useDispatch } from "react-redux";
 
 function Login() {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fieldErrors, setFieldErrors] = useState({
@@ -30,12 +33,21 @@ function Login() {
       toast.error("Please fill in all required fields.");
       return;
     }
-
+  
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      toast.success("Login successful!");
+      const user = auth.currentUser;
+  
+      if (user) {
+        // Check if the user has a photoURL
+        const avatarURL = user.photoURL || "";
+  
+        dispatch(loginUser({ uid: user.uid, email: user.email, username: user.displayName, avatarURL }));
+        dispatch(setAvatarURL(avatarURL));
+  
+        toast.success("Login successful!");
+      }
     } catch (error) {
-      // Handle specific errors
       if (error.code === "auth/invalid-email") {
         toast.error("Invalid email address");
       } else if (error.code === "auth/user-not-found") {
