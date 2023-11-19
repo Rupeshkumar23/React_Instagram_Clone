@@ -13,7 +13,7 @@ import { useSelector } from "react-redux";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import Modal from "react-modal";
-import Emoji1 from '../../Imgs/Emoji.png'
+import Emoji1 from "../../Imgs/Emoji.png";
 function Post({
   user,
   postImage,
@@ -222,12 +222,21 @@ function Post({
                     />
                   )}
                 </div>
-                <div style={{marginBottom:'5px'}}>
+                <div style={{ marginBottom: "5px" }}>
                   <MoreHorizIcon />
                 </div>
               </div>
-             
-              <hr style={{border:'none', borderRadius: '10px', height:'1px', marginTop:'13px', marginLeft:'5px',background: '#2727279b'}} />
+
+              <hr
+                style={{
+                  border: "none",
+                  borderRadius: "10px",
+                  height: "1px",
+                  marginTop: "13px",
+                  marginLeft: "5px",
+                  background: "#2727279b",
+                }}
+              />
 
               <div className="scrollable-div">
                 {comments.map((item, id) => (
@@ -258,7 +267,7 @@ function Post({
                     style={{
                       width: 40,
                       height: 40,
-                      borderRadius:"50%",
+                      borderRadius: "50%",
                       objectFit: "cover",
                       marginTop: -1,
                     }}
@@ -353,7 +362,16 @@ function Post({
                 </div>
               </div>
             </div>
-            <hr style={{border:'none', borderRadius: '10px', height:'1px', marginTop:'13px', marginLeft:'5px',background: '#2727279b'}} />
+            <hr
+              style={{
+                border: "none",
+                borderRadius: "10px",
+                height: "1px",
+                marginTop: "13px",
+                marginLeft: "5px",
+                background: "#2727279b",
+              }}
+            />
 
             <div style={{ marginLeft: 20, marginTop: 0 }}>
               <div className="post__footer">
@@ -380,40 +398,78 @@ function Post({
                     <BookmarkBorderIcon className="postIcon" />
                   </div>
                 </div>
-                <span style={{marginLeft:11}} className="like-count">{likeCount} likes</span>
+                <span style={{ marginLeft: 11 }} className="like-count">
+                  {likeCount} likes
+                </span>
               </div>
-              <p style={{ fontSize: 11, color: "#A8A8A8", marginBottom:'10px', marginLeft:'10px', marginTop: 10 }}>
+              <p
+                style={{
+                  fontSize: 11,
+                  color: "#A8A8A8",
+                  marginBottom: "10px",
+                  marginLeft: "10px",
+                  marginTop: 10,
+                }}
+              >
                 1 DAY AGO
               </p>
-           <hr style={{border:'none', borderRadius: '10px', height:'1px', marginTop:'13px', marginLeft:'5px',background: '#2727279b'}} />
-              <div className="text_A" style={{marginTop:'10px'}}>
-              <img  className="emoji"  onClick={toggleEmojiPickerVisibility} src={Emoji1} style={{ width: 24, marginTop:'7px', marginLeft:'18px', height: 24,cursor:'pointer' }} alt="Emoji" />
-          <textarea
-            placeholder="Add a comment..."
-            value={comment}
-            onChange={handleCommentChange}
-          ></textarea>
-          {comment.trim() !== "" && (
-            <span onClick={handlecomment} style={{marginTop:'10px',marginRight:'5px', cursor:'pointer'}} className="post_P">
-              Post
-            </span>
-          )}
-        
-          <div className="pick_emoji" ref={emojiPickerRef_M}>
-            {isEmojiPickerVisible && (
-              <Picker
-                data={data}
-                emojiSize={20}
-                emojiButtonSize={28}
-                onEmojiSelect={addEmoji}
-                navPosition="top"
-                previewPosition="none"
+              <hr
+                style={{
+                  border: "none",
+                  borderRadius: "10px",
+                  height: "1px",
+                  marginTop: "13px",
+                  marginLeft: "5px",
+                  background: "#2727279b",
+                }}
               />
-            )}
-          </div>
-        </div>
+              <div className="text_A" style={{ marginTop: "10px" }}>
+                <img
+                  className="emoji"
+                  onClick={toggleEmojiPickerVisibility}
+                  src={Emoji1}
+                  style={{
+                    width: 24,
+                    marginTop: "7px",
+                    marginLeft: "18px",
+                    height: 24,
+                    cursor: "pointer",
+                  }}
+                  alt="Emoji"
+                />
+                <textarea
+                  placeholder="Add a comment..."
+                  value={comment}
+                  onChange={handleCommentChange}
+                ></textarea>
+                {comment.trim() !== "" && (
+                  <span
+                    onClick={handlecomment}
+                    style={{
+                      marginTop: "10px",
+                      marginRight: "5px",
+                      cursor: "pointer",
+                    }}
+                    className="post_P"
+                  >
+                    Post
+                  </span>
+                )}
+
+                <div className="pick_emoji" ref={emojiPickerRef_M}>
+                  {isEmojiPickerVisible && (
+                    <Picker
+                      data={data}
+                      emojiSize={20}
+                      emojiButtonSize={28}
+                      onEmojiSelect={addEmoji}
+                      navPosition="top"
+                      previewPosition="none"
+                    />
+                  )}
+                </div>
+              </div>
             </div>
-            
           </div>
         </div>
       </Modal>
