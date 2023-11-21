@@ -484,11 +484,13 @@ function Post({
                   {isModalEmojiPickerVisible && (
                     <Picker
                       data={data}
-                      emojiSize={20}
-                      emojiButtonSize={28}
+                      emojiSize={32}
+                      emojiButtonSize={50}
                       onEmojiSelect={addEmoji}
-                      navPosition="top"
                       previewPosition="none"
+                      navPosition="none"
+                      searchPosition="none"
+                      perLine={7}
                     />
                   )}
                 </div>
@@ -554,11 +556,13 @@ function Post({
             {isMainEmojiPickerVisible && (
               <Picker
                 data={data}
-                emojiSize={20}
-                emojiButtonSize={28}
+                emojiSize={32}
+                emojiButtonSize={50}
                 onEmojiSelect={addEmoji}
-                navPosition="top"
                 previewPosition="none"
+                navPosition="none"
+                searchPosition="none"
+                perLine={7}
               />
             )}
           </div>
