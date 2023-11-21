@@ -22,16 +22,16 @@ function Suggestions() {
           marginBottom:50,
         }}
       >
-        <img
-          src={user.avatarURL}
-          style={{
-            width: "50px",
-            height: "50px",
-            borderRadius: "50%",
-            objectFit: "cover",
-          }}
-          alt=""
-        />
+    <img
+  src={user.avatarURL || localStorage.getItem("avatarURL")}
+  style={{
+    width: "50px",
+    height: "50px",
+    borderRadius: "50%",
+    objectFit: "cover",
+  }}
+  alt="A_V"
+/>
         <div style={{ marginLeft: 10,marginBottom:"2px" }}>
           <p style={{ textAlign: "start"  }}> {user.username}</p>
           <p style={{ marginTop: '5px', textAlign: "start", color: "#A8A8A8" }}>

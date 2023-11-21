@@ -11,6 +11,7 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
+      dispatch(setLoading(true));
       if (authUser) {
         dispatch(
           loginUser({

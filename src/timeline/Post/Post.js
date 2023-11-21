@@ -513,21 +513,21 @@ function Post({
         </p>
 
         {comments.map((comment, index) => (
-          <p
-            key={index}
-            style={{ marginTop: ".5rem", display: "flex", color: "#fff" }}
-          >
-            <img
-              src={user1.avatarURL}
-              alt="Verified"
-              style={{
-                width: "4%",
-                height: "4%",
-                borderRadius: "50%",
-                objectFit: "cover",
-                marginRight: ".5rem",
-              }}
-            />
+  <p
+    key={index}
+    style={{ marginTop: ".5rem", display: "flex", color: "#fff" }}
+  >
+    <img
+      src={user1.avatarURL || localStorage.getItem("avatarURL")}
+      alt="Verified"
+      style={{
+        width: "4%",
+        height: "4%",
+        borderRadius: "50%",
+        objectFit: "cover",
+        marginRight: ".5rem",
+      }}
+    />
             <b>{comment.username}</b>
             <span style={{ marginLeft: ".4rem" }}>{comment.comment}</span>
           </p>

@@ -20,7 +20,8 @@ import MenuItem from "@mui/material/MenuItem";
 
 function Sidenav() {
   const user = useSelector((state) => state.data.user.user);
-  console.log(user.avatarURL)
+  // console.log(user.avatarURL)
+  const storedAvatarURL = localStorage.getItem("avatarURL");
   const dispatch = useDispatch();
   const handelLogout = () => {
     dispatch(logoutUser());
@@ -85,19 +86,19 @@ function Sidenav() {
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
               >
-                <Avatar
-                  style={{
-                    width: "25px",
-                    height: "25px",
-                    marginLeft: "16px",
-                  }}
-                  alt="UserAvatar"
-                  src={user.avatarURL}
-                >
-                  {user.username ? user.username.slice(1).toUpperCase() : "A"}
-               
-                </Avatar>
-
+          {user && (user.avatarURL || storedAvatarURL) && (
+        <Avatar
+          style={{
+            width: "25px",
+            height: "25px",
+            marginLeft: "16px",
+          }}
+          alt="UserAvatar"
+          src={user.avatarURL || storedAvatarURL}
+        >
+          {user.username ? user.username.slice(1).toUpperCase() : "A"}
+        </Avatar>
+      )}
                 <span className="log_p">Profile </span>
               </Button>
               <Popover
