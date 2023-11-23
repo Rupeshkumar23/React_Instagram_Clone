@@ -97,13 +97,13 @@
 
 .crousel_container {
   height: 650px;
-  background-image: url('../Imgs//phone.png');
+  background-image: url('../Imgs/phone.png');
   background-size: contain;
   object-fit: cover;
   background-repeat: no-repeat;
   width: 25vw;
-
 }
+
 .crousel_wrapper{
   position: relative;
   z-index: 2;
@@ -113,7 +113,6 @@
 .crousel_image {
   height: 560px;  
   width: 260px;
-  pointer-events: none;
 }
 @media only screen and (max-width:939px) {
   .crousel_container {
