@@ -9,13 +9,13 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
-import { useSelector } from "react-redux";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import Modal from "react-modal";
 import Emoji1 from "../../Imgs/Emoji.png";
 import Img_10 from "../../Imgs/Tech_G.jpg";
 import { statusCarousel } from "../../Stories/data";
+import useAuth from "../../features/custom-hooks/useAuth";
 
 function Post({
   user,
@@ -29,12 +29,12 @@ function Post({
 }) {
   // Take only the first four items from the array
   const firstFourStatuses = statusCarousel.slice(0, 4);
-
+  const { currentUser } = useAuth();
   // Access each image separately
   const firstImage = firstFourStatuses[0].img;
   const secondImage = firstFourStatuses[1].img;
   const fourthImage = firstFourStatuses[3].img;
-  const user1 = useSelector((state) => state.data.user.user);
+
   const [modalIsOpen, setmodalIsOpen] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(likes);
@@ -74,7 +74,7 @@ function Post({
   const addComment = async () => {
     const newComment = {
       postid: "7823131",
-      username: user1.username,
+      username: currentUser.displayName,
       comment: comment,
       profile:
         "https://images.pexels.com/photos/2646841/pexels-photo-2646841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -268,12 +268,11 @@ function Post({
               />
 
               <div className="scrollable-div">
-                {comments.map((comment, index) => (
+                {comments.map((comment, id) => (
                   <div style={{ display: "flex", marginLeft: 30 }}>
                     <img
-                      key={index}
-                      // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVVIYDt6bSnhK21l1e1eGY0FnEBcTkTYeyEgEL53gv&s"
-                      src={user1.avatarURL || localStorage.getItem("avatarURL")}
+                      key={id}
+                      src={currentUser.photoURL}
                       style={{
                         width: 30,
                         height: 30,
@@ -512,22 +511,23 @@ function Post({
           View all {comments1} comments
         </p>
 
-        {comments.map((comment, index) => (
-  <p
-    key={index}
-    style={{ marginTop: ".5rem", display: "flex", color: "#fff" }}
-  >
-    <img
-      src={user1.avatarURL || localStorage.getItem("avatarURL")}
-      alt="Verified"
-      style={{
-        width: "4%",
-        height: "4%",
-        borderRadius: "50%",
-        objectFit: "cover",
-        marginRight: ".5rem",
-      }}
-    />
+        {comments.map((comment, id) => (
+          <p
+            key={id}
+            style={{ marginTop: ".5rem", display: "flex", color: "#fff" }}
+          >
+            <img
+              src={currentUser.photoURL}
+              alt="Verified"
+              style={{
+                width: "4%",
+                height: "4%",
+                borderRadius: "50%",
+                objectFit: "cover",
+                marginRight: ".5rem",
+              }}
+            />
+
             <b>{comment.username}</b>
             <span style={{ marginLeft: ".4rem" }}>{comment.comment}</span>
           </p>

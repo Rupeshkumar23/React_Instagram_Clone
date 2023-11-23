@@ -2,14 +2,15 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import {auth} from "../firebase";
+import { auth, db } from "../firebase";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../features/userSlice";
-import { setAvatarURL } from "../features/userSlice"; // Add this import
+import { loginUser, setLoading } from "../features/userSlice";
 import GetappSignIn from "./GetappSignIn";
+import { setAvatarURL } from "../features/userSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { storage } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
 import './Signup.css'
 
 function Signup() {
@@ -19,8 +20,6 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
   const [avatar, setAvatar] = useState(null);
-  const [error, setError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState({
     email: false,
     username: false,
@@ -50,7 +49,7 @@ function Signup() {
     try {
       let avatarURL = "";
       if (avatar) {
-        const storageRef = ref(storage, `avatars/${email}_${avatar.name}`);
+        const storageRef = ref(storage, `avatars/${email}_${avatar.name + Date.now()}`);
         await uploadBytes(storageRef, avatar);
         avatarURL = await getDownloadURL(storageRef);
       }
@@ -63,21 +62,29 @@ function Signup() {
         photoURL: avatarURL,
       });
 
+      // Store user data in firestore database
+      await setDoc(doc(db, 'users', user.uid), {
+        uid: user.uid,
+        displayName: username,
+        email,
+        photoURL: avatarURL,
+      });
+
+      setLoading(false);
+      toast.success("User signed up successfully");
+
       dispatch(loginUser({ uid: user.uid, email, username, avatarURL }));
       dispatch(setAvatarURL(avatarURL));
 
-      setError(null);
-      setSuccessMessage("User signed up successfully");
-      toast.success(successMessage);
     } catch (err) {
+      setLoading(false);
       if (err.code === "auth/invalid-email") {
-        setError("Invalid email address. Please enter a valid email.");
+        toast.error("Invalid email address. Please enter a valid email.");
       } else if (err.code === "auth/weak-password") {
-        setError("Weak password. Please use a stronger password.");
+        toast.error("Weak password. Please use a stronger password.");
       } else {
-        setError("Signup failed. Please check your information and try again.");
+        toast.error("Signup failed. Please check your information and try again.");
       }
-      toast.error(error || "An error occurred");
     }
   };
 

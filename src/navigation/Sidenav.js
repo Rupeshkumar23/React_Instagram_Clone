@@ -10,34 +10,36 @@ import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { signOut } from "firebase/auth";
 import { logoutUser } from "../features/userSlice";
 import { auth } from "../firebase";
 import Button from "@mui/material/Button";
 import Popover from "@mui/material/Popover";
 import MenuItem from "@mui/material/MenuItem";
+import useAuth from "../features/custom-hooks/useAuth";
 
-function Sidenav() {
-  const user = useSelector((state) => state.data.user.user);
-  // console.log(user.avatarURL)
-  const storedAvatarURL = localStorage.getItem("avatarURL");
-  const dispatch = useDispatch();
-  const handelLogout = () => {
-    dispatch(logoutUser());
-    signOut(auth);
-  };
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
+  function Sidenav() {
+    const { currentUser } = useAuth();
+    const dispatch = useDispatch();
+  
+    const handelLogout = () => {
+      dispatch(logoutUser());
+      signOut(auth);
+    };
+  
+    const [anchorEl, setAnchorEl] = useState(null);
+  
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+  
+    const open = Boolean(anchorEl);
+  
 
   return (
     <>
@@ -86,19 +88,17 @@ function Sidenav() {
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
               >
-          {user && (user.avatarURL || storedAvatarURL) && (
-        <Avatar
-          style={{
-            width: "25px",
-            height: "25px",
-            marginLeft: "16px",
-          }}
-          alt="UserAvatar"
-          src={user.avatarURL || storedAvatarURL}
-        >
-          {user.username ? user.username.slice(1).toUpperCase() : "A"}
-        </Avatar>
-      )}
+          {currentUser && currentUser.photoURL && (
+                  <Avatar
+                    style={{
+                      width: "25px",
+                      height: "25px",
+                      marginLeft: "16px",
+                    }}
+                    alt="UserAvatar"
+                    src={currentUser.photoURL}
+                  />
+                )}
                 <span className="log_p">Profile </span>
               </Button>
               <Popover
