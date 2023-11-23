@@ -273,7 +273,7 @@ function Post({
                     <img
                       key={index}
                       // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVVIYDt6bSnhK21l1e1eGY0FnEBcTkTYeyEgEL53gv&s"
-                      src={user1.avatarURL}
+                      src={user1.avatarURL || localStorage.getItem("avatarURL")}
                       style={{
                         width: 30,
                         height: 30,

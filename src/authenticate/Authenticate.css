@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 90px 50px 0px 50px;
 }
 
 .auth_left {
@@ -12,35 +11,6 @@
 
 .auth_right {
   flex: 0.5;
-}
-
-.auth_left>img {
-  width: 400px;
-  margin-top: 40px;
-  filter: drop-shadow(1px 1px 1rem #ffffff5d);
-  animation: back 5s infinite linear;
-  transition: .3s;
-
-
-
-}
-
-@keyframes back {
-  10% {
-    filter: drop-shadow(1px 1px 1rem #ffdd005d);
-  }
-
-  50% {
-    filter: drop-shadow(1px 1px 1rem #f560405d);
-
-
-  }
-
-  100% {
-    filter: drop-shadow(1px 1px 1rem #e81cff5d);
-
-  }
-
 }
 
 .auth_more {
@@ -81,7 +51,7 @@
   font-size: .8rem;
   height: 200px;
   margin-bottom: 10px;
-  margin-top: -5rem;
+  margin-top: -15.5rem;
 }
 
 .list_item {
@@ -114,5 +84,52 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
+}
+
+
+.login_container {
+  height:100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crousel_container {
+  height: 650px;
+  background-image: url('../Imgs//phone.png');
+  background-size: contain;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  width: 25vw;
+
+}
+.crousel_wrapper{
+  position: relative;
+  z-index: 2;
+  left: 158px;
+  top: 25px;
+}
+.crousel_image {
+  height: 560px;  
+  width: 260px;
+  pointer-events: none;
+}
+@media only screen and (max-width:939px) {
+  .crousel_container {
+      display: none
+  }
+
+}
+@media only screen and (max-width:1883px) {
+  .crousel_container {
+    width: 50vw;
+  }
+
+}
+@media only screen and (max-width:700px) {
+  .crousel_container {
+      display: none
+  }
 
 }

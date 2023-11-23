@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Authenticate.css";
 import Login from "./Login";
 import Signup from "./Signup";
+import Crousel from "./Crousel ";
 
 function Authenticate() {
   const [active, setActive] = useState("login");
@@ -61,12 +62,15 @@ function Authenticate() {
 
   return (
     <>
+     <div className="login_container">
     <div className="authenticate">
       <div className="auth_left">
-        <img
+        {/* <img
           src="https://i.imgur.com/P3Vm1Kq.png"
           alt="Instagram Screenshots"
-        />
+        /> */}
+          <Crousel/>
+       
       </div>
       <div className="auth_right">
         {active === "login" ? <Login /> : <Signup />}
@@ -86,6 +90,7 @@ function Authenticate() {
           </span>
         </div>
       </div>
+    </div>
     </div>
     <div className="list_L">
       {items.map((item, index) => (
@@ -108,6 +113,7 @@ function Authenticate() {
       </select>
         <span>© 2023 Instagram from Meta</span>
     </div>
+    
     </>
   );
 }
