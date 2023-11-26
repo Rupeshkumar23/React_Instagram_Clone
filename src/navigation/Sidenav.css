@@ -134,6 +134,7 @@ background: rgba(255, 255, 255, 0.316)!important;
   width: 20%;
   height: 100vh;
   margin: auto;
+  outline: none;
   border-top-right-radius: 2rem;
   border-right: 1px solid #ffffff3b;
   display: flex;
