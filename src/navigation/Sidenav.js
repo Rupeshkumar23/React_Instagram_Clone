@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import "./Sidenav.css";
 import HomeIcon from "@mui/icons-material/Home";
@@ -28,8 +29,12 @@ function Sidenav() {
   const [modalIsOpen, setmodalIsOpen] = useState(false);
   const [createOpen, setcreateOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
-  const [file , setFile] = useState(null);
-  const [imagepre , setImagePre] = useState(null);
+  const [file, setFile] = useState(null);
+  const [imagepre, setImagePre] = useState(null);
+  const handleFileChange = (e) => {
+    setFile(e.target?.files[0]);
+    setImagePre(URL.createObjectURL(e.target.files[0]));
+  };
   const dispatch = useDispatch();
   const handleShowmodal_C = () => {
     setcreateOpen(true);
@@ -173,7 +178,7 @@ function Sidenav() {
             <Modal
               style={{
                 overlay: {
-                  backgroundColor: "rgb(0, 0, 0,.5)"
+                  backgroundColor: "rgb(0, 0, 0,.5)",
                 },
               }}
               isOpen={createOpen}
@@ -182,41 +187,67 @@ function Sidenav() {
               className={`modalCreate`}
             >
               <div className="create_box">
-              <div style={{flex:1 , height:"70vh"}}>
-                    {imagepre == null ?
-                    
-                    <div >
-                       <p style={{display:'flex' , alignItems:"center" , margin:'auto' , justifyContent:'center' ,fontWeight:600 , marginTop:10}}>Create new post</p>
-                       <hr style={{ borderBottom:' 1px',borderBottomStyle:'solid',   borderColor:'#ffffff3b', marginTop:'10px', }}/>
-                       <div style={{display:'flex',alignItems:"center" , margin:'auto' , justifyContent:'center', marginTop:-10}}>
-                        <div style={{marginTop:280 , marginLeft:40}}>
-                         <img src={Iconsfromcreatemodal} style={{marginLeft:30}} alt=''/>
-                         <p style={{fontWeight:"600" , marginLeft:"-40px" ,marginBottom:'10px', fontSize:18}}>Drag photos and videos here</p>
-                         <label htmlFor="file">
-                            <div  style={{backgroundColor:"#0095F6" , paddingLeft:25 , marginLeft:-20 , borderRadius:4 }}>
-                              <p style={{paddingTop:"6px" ,  paddingBottom:"7px"}}>Select from computer</p>
+                <div style={{ flex: 1, height: "70vh" }}>
+                  {imagepre == null ? (
+                    <div className="post-container">
+                      <p className="post-title">Create new post</p>
+                      <hr className="post-hr" />
+                      <div className="post-content">
+                        <div className="image-upload-container">
+                          <img
+                            src={Iconsfromcreatemodal}
+                            className="upload-icon"
+                            alt=""
+                          />
+                          <p className="upload-text">
+                            Drag photos and videos here
+                          </p>
+                          <label htmlFor="file" className="select-button">
+                            <div className="select-button-inner">
+                              <p>Select from computer</p>
                             </div>
-                          <input type="file" name="file" id='file' accept='image/*' onChange={(e)=>[setFile(e.target?.files[0]), setImagePre(URL.createObjectURL(e.target.files[0]))]} style={{display:"none"}}/>
-                         </label>
-                         
+                            <input
+                              type="file"
+                              name="file"
+                              id="file"
+                              accept="image/*"
+                              onChange={handleFileChange}
+                              className="file-input"
+                            />
+                          </label>
                         </div>
-                       </div>
+                      </div>
                     </div>
-                  :
-                  <div>
-                    <div style={{display:"flex" }}>
-                        <img src={imagepre} style={{width:"60%" , height:"60vh", objectFit:"cover"}} alt=''/>   
-                        <div style={{marginLeft:20 , width:"40%"}}>
-                            <div style={{display:'flex' , alignItems:"center"}}>
-                                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQATOWAXKfh8Bt6g6wp2nobJIWLTX5PQqcp3Q&usqp=CAU' style={{width:"30px" , height:"30px" , borderRadius:"50%" , objectFit:"cover"}} alt=''/>
-                                <p style={{marginLeft:10 , fontWeight:600 , fontSize:16}}>madan khadka</p>
-                            </div>
-                            <textarea type='text' name='text' id='text' placeholder='Write a status for post'  className='textinputforpost'/>
-                            <button className='createpost'>Post</button>
+                  ) : (
+                    <div>
+                      <div className="postContainer">
+                        <img
+                          src={imagepre}
+                          className="postImage"
+                          alt="img_post"
+                        />
+                        <div className="postDetails">
+                          <div className="userInfo">
+                            <img
+                              src={currentUser.photoURL}
+                              className="userAvatar"
+                              alt=""
+                            />
+                            <p className="userName">{currentUser.displayName}</p>
+                          </div>
+                          <textarea
+                            type="text"
+                            name="text"
+                            id="text"
+                            placeholder="Write a status for post"
+                            className="textInputForPost"
+                          />
+                          <button className="createPostButton">Post</button>
                         </div>
+                      </div>
                     </div>
-                 </div>}
-              </div>
+                  )}
+                </div>
               </div>
             </Modal>
             <button className="sidenav_button">
