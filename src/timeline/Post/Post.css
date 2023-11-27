@@ -122,6 +122,7 @@ position: relative;
   margin-top: 25px;
   border: none;
   z-index: 999;
+  outline: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 

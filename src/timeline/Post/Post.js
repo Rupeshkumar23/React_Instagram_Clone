@@ -194,7 +194,7 @@ function Post({
       {/* <Modal></Modal> */}
 
       <Modal
-        style={{ overlay: { backgroundColor: "#2e2b2bc7" } }}
+        style={{ overlay: { backgroundColor: "rgb(0, 0, 0,.5)" } }}
         isOpen={modalIsOpen}
         ariaHideApp={false}
         onRequestClose={() => setmodalIsOpen(false)}

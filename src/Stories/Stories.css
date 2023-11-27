@@ -68,8 +68,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1;
     cursor: pointer;
+    opacity: 0;
+    z-index: 10;
 }
 .arrow-btn:hover{
     opacity: 1;
@@ -77,15 +78,16 @@
 .arrow-btn img{
     width: 10px;
     height: 10px;
+   
 }
 .left-icon{
     left: 10px;
     top: 20px;
-    opacity: 0.5;
 }
 .right-icon{
     right: 10px;
     top: 20px;
+   
 }
 
 

@@ -21,12 +21,22 @@ import Modal from "react-modal";
 import useAuth from "../features/custom-hooks/useAuth";
 import InstagramIcon from "../Imgs/Instagramlogo.png";
 import ClearIcon from "@mui/icons-material/Clear";
+import Iconsfromcreatemodal from "../Imgs/Icon to represent media such as images or videos.png";
 
 function Sidenav() {
   const { currentUser } = useAuth();
   const [modalIsOpen, setmodalIsOpen] = useState(false);
+  const [createOpen, setcreateOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [file , setFile] = useState(null);
+  const [imagepre , setImagePre] = useState(null);
   const dispatch = useDispatch();
+  const handleShowmodal_C = () => {
+    setcreateOpen(true);
+  };
+  const handleCloseModal_C = () => {
+    setcreateOpen(false);
+  };
   const handleInputChange = (e) => {
     setSearchText(e.target.value);
   };
@@ -160,9 +170,58 @@ function Sidenav() {
               <FavoriteBorderIcon className="" />
               <span>Notifications</span>
             </button>
+            <Modal
+              style={{
+                overlay: {
+                  backgroundColor: "rgb(0, 0, 0,.5)"
+                },
+              }}
+              isOpen={createOpen}
+              ariaHideApp={false}
+              onRequestClose={() => setcreateOpen(false)}
+              className={`modalCreate`}
+            >
+              <div className="create_box">
+              <div style={{flex:1 , height:"70vh"}}>
+                    {imagepre == null ?
+                    
+                    <div >
+                       <p style={{display:'flex' , alignItems:"center" , margin:'auto' , justifyContent:'center' ,fontWeight:600 , marginTop:10}}>Create new post</p>
+                       <hr style={{ borderBottom:' 1px',borderBottomStyle:'solid',   borderColor:'#ffffff3b', marginTop:'10px', }}/>
+                       <div style={{display:'flex',alignItems:"center" , margin:'auto' , justifyContent:'center', marginTop:-10}}>
+                        <div style={{marginTop:280 , marginLeft:40}}>
+                         <img src={Iconsfromcreatemodal} style={{marginLeft:30}} alt=''/>
+                         <p style={{fontWeight:"600" , marginLeft:"-40px" ,marginBottom:'10px', fontSize:18}}>Drag photos and videos here</p>
+                         <label htmlFor="file">
+                            <div  style={{backgroundColor:"#0095F6" , paddingLeft:25 , marginLeft:-20 , borderRadius:4 }}>
+                              <p style={{paddingTop:"6px" ,  paddingBottom:"7px"}}>Select from computer</p>
+                            </div>
+                          <input type="file" name="file" id='file' accept='image/*' onChange={(e)=>[setFile(e.target?.files[0]), setImagePre(URL.createObjectURL(e.target.files[0]))]} style={{display:"none"}}/>
+                         </label>
+                         
+                        </div>
+                       </div>
+                    </div>
+                  :
+                  <div>
+                    <div style={{display:"flex" }}>
+                        <img src={imagepre} style={{width:"60%" , height:"60vh", objectFit:"cover"}} alt=''/>   
+                        <div style={{marginLeft:20 , width:"40%"}}>
+                            <div style={{display:'flex' , alignItems:"center"}}>
+                                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQATOWAXKfh8Bt6g6wp2nobJIWLTX5PQqcp3Q&usqp=CAU' style={{width:"30px" , height:"30px" , borderRadius:"50%" , objectFit:"cover"}} alt=''/>
+                                <p style={{marginLeft:10 , fontWeight:600 , fontSize:16}}>madan khadka</p>
+                            </div>
+                            <textarea type='text' name='text' id='text' placeholder='Write a status for post'  className='textinputforpost'/>
+                            <button className='createpost'>Post</button>
+                        </div>
+                    </div>
+                 </div>}
+              </div>
+              </div>
+            </Modal>
             <button className="sidenav_button">
-              <AddBoxOutlinedIcon className="" />
-              <span>Create</span>
+              <AddBoxOutlinedIcon onClick={handleCloseModal_C} className="" />
+              <span onClick={handleShowmodal_C}>Create</span>
             </button>
             <div className="sidenav_button1 pop_bg">
               <Button

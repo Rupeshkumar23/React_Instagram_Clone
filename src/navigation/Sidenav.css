@@ -217,6 +217,22 @@ h2{
 .scrollable-div::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
+.modalCreate{
+  width: 38%;
+  height: 85vh;
+  margin: auto;
+  margin-top:20px;
+  display: flex;
+  outline: none;
+  flex-direction: column;
+  border-radius: 10px;
+  border: none;
+  background-color: #262626;
+  margin-top: 25px;
+  border: none;
+  z-index: 20;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
 
 
