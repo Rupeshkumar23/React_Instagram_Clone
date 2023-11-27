@@ -269,9 +269,8 @@ function Post({
 
               <div className="scrollable-div">
                 {comments.map((comment, id) => (
-                  <div style={{ display: "flex", marginLeft: 30 }}>
+                  <div key={id} style={{ display: "flex", marginLeft: 30 }}>
                     <img
-                      key={id}
                       src={currentUser.photoURL}
                       style={{
                         width: 30,
@@ -514,7 +513,7 @@ function Post({
         {comments.map((comment, id) => (
           <p
             key={id}
-            style={{ marginTop: ".5rem", display: "flex", color: "#fff" }}
+            style={{ marginTop: ".5rem", overflow:'hidden', display: "flex", flexWrap: "wrap", color: "#fff" }}
           >
             <img
               src={currentUser.photoURL}
@@ -529,7 +528,7 @@ function Post({
             />
 
             <b>{comment.username}</b>
-            <span style={{ marginLeft: ".4rem" }}>{comment.comment}</span>
+            <p style={{ marginLeft: ".4rem" }}>{comment.comment}</p>
           </p>
         ))}
 
