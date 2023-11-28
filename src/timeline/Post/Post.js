@@ -17,6 +17,7 @@ import Img_10 from "../../Imgs/Tech_G.jpg";
 import { statusCarousel } from "../../Stories/data";
 import useAuth from "../../features/custom-hooks/useAuth";
 import ClearIcon from "@mui/icons-material/Clear";
+import BookmarkOutlinedIcon from "@mui/icons-material/BookmarkOutlined";
 
 function Post({
   user,
@@ -42,6 +43,7 @@ function Post({
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [chosenEmoji, setChosenEmoji] = useState(null);
+  const [isSaved, setIsSaved] = useState(false);
   const [isEmojiPickerVisible, setEmojiPickerVisibility] = useState(false);
   const [isMainEmojiPickerVisible, setMainEmojiPickerVisibility] =
     useState(false);
@@ -99,6 +101,9 @@ function Post({
 
   const toggleEmojiPickerVisibility = () => {
     setEmojiPickerVisibility(!isEmojiPickerVisible);
+  };
+  const handleSaveClick = () => {
+    setIsSaved((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -189,7 +194,17 @@ function Post({
             <TelegramIcon className="postIcon" />
           </div>
           <div className="post_iconSave">
-            <BookmarkBorderIcon className="postIcon" />
+            {isSaved ? (
+              <BookmarkOutlinedIcon
+                sx={{ fontSize: "2.8rem", padding: "7px", cursor: "pointer" }}
+                onClick={handleSaveClick}
+              />
+            ) : (
+              <BookmarkBorderIcon
+                className="postIcon"
+                onClick={handleSaveClick}
+              />
+            )}
           </div>
         </div>
         <span className="like-count">{likeCount} likes</span>

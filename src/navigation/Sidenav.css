@@ -4,7 +4,8 @@
   flex-direction: column;
   z-index: 1;
 }
-.main{
+
+.main {
   border-right: 1px solid #ffffff3b;
   position: fixed;
   height: 100vh;
@@ -12,7 +13,8 @@
   transition: width 0.5s ease-in-out;
   margin-left: -5px;
 }
-img{
+
+img {
   cursor: pointer;
 }
 
@@ -25,7 +27,8 @@ img{
   display: flex;
   flex-direction: column;
 }
-.sidenav_buttonText{
+
+.sidenav_buttonText {
   font-size: 18px;
   color: #fff;
   margin-left: 10px;
@@ -45,15 +48,17 @@ img{
   width: 100%;
   position: relative;
 }
-.up_arrow{
- position: relative;
- color: #ffffff81;
- border:1px solid #ffffff81;
- border-radius: 5px;
- left: 9.5rem;
- visibility: hidden;
+
+.up_arrow {
+  position: relative;
+  color: #ffffff81;
+  border: 1px solid #ffffff81;
+  border-radius: 5px;
+  left: 9.5rem;
+  visibility: hidden;
 }
-.sidenav_button:hover .up_arrow{
+
+.sidenav_button:hover .up_arrow {
   visibility: visible;
 }
 
@@ -63,20 +68,23 @@ img{
   transition: all 0.3s ease;
   background-color: rgba(255, 255, 255, 0.128);
 }
-.sidenav_button1:hover{
+
+.sidenav_button1:hover {
   cursor: pointer;
   width: 94%;
-  border-radius:15px;
+  border-radius: 15px;
   transition: all 0.3s ease;
   background-color: rgba(255, 255, 255, 0.128);
 }
-.sidenav_button > span {
+
+.sidenav_button>span {
   font-size: 18px;
-  font-weight:lighter;
+  font-weight: lighter;
   margin-left: 10px;
 }
-.Menu_C:hover{
-background: rgba(255, 255, 255, 0.316)!important;
+
+.Menu_C:hover {
+  background: rgba(255, 255, 255, 0.316) !important;
 }
 
 
@@ -104,11 +112,11 @@ background: rgba(255, 255, 255, 0.316)!important;
   width: 17.5%;
 }
 
-.log_p{
+.log_p {
   color: white;
   font-size: 18px;
   text-transform: capitalize;
-  margin-left:10px;
+  margin-left: 10px;
 }
 
 .logout_button {
@@ -141,7 +149,7 @@ background: rgba(255, 255, 255, 0.316)!important;
   display: flex;
   flex-direction: column;
   position: fixed;
-  left: -100%; 
+  left: -100%;
   top: 0;
   border-radius: 10px;
   padding: 12px;
@@ -155,37 +163,41 @@ background: rgba(255, 255, 255, 0.316)!important;
   left: 2.6%;
 }
 
-h2{
+h2 {
   margin-top: 0;
-  padding:1em;
+  padding: 1em;
 }
-.showsearchinput{
-  background-color:rgba(255, 255, 255, 0.266); 
-  border:none; 
-  border-radius:5px;
-  width:95%; 
-  height:15px;
-  margin-left:10px;
+
+.showsearchinput {
+  background-color: rgba(255, 255, 255, 0.266);
+  border: none;
+  border-radius: 5px;
+  width: 95%;
+  height: 15px;
+  margin-left: 10px;
   outline: none;
-  color:white;
+  color: white;
   padding: 20px;
-  text-indent:20px;
+  text-indent: 20px;
 }
 
 
-.showsearchinput::placeholder{
-  color:#A8A8A8;
+.showsearchinput::placeholder {
+  color: #A8A8A8;
 }
+
 .search-box {
   display: flex;
   align-items: center;
   position: relative;
 }
-.clear_all{
+
+.clear_all {
   margin-top: 2px;
   color: #0095f6;
 }
-.clear_all:hover{
+
+.clear_all:hover {
   color: white;
   cursor: pointer;
 }
@@ -200,41 +212,45 @@ h2{
 
 .search-icon {
   left: 20px;
-  font-size: 20px!important;
+  font-size: 20px !important;
 }
-.search_hr{
+
+.search_hr {
   border: 1px solid #ffffff1d;
   margin-top: 20px;
   position: relative;
   left: 10px;
- 
+
 }
+
 .clear-icon {
   right: 20px;
   padding: 2px;
-  font-size: 15px!important;
-  background-color:#ffffffc0; 
+  font-size: 15px !important;
+  background-color: #ffffffc0;
   color: black;
   border-radius: 50%;
 }
 
-.scrollable-div{
-  height:65vh;
-  overflow:auto
+.scrollable-div {
+  height: 65vh;
+  overflow: auto
 }
 
 .scrollable-div::-webkit-scrollbar {
   width: 0.5em;
   background-color: transparent;
 }
+
 .scrollable-div::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
-.modalCreate{
+
+.modalCreate {
   width: 38%;
   height: 85vh;
   margin: auto;
-  margin-top:20px;
+  margin-top: 20px;
   display: flex;
   outline: none;
   flex-direction: column;
@@ -246,6 +262,7 @@ h2{
   z-index: 20;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
 .post-container {
   text-align: center;
 }
@@ -301,7 +318,7 @@ h2{
 /* After Choose the IMG */
 .postContainer {
   display: flex;
-  margin:10px 5px;
+  margin: 10px 5px;
 }
 
 .postImage {
@@ -348,5 +365,10 @@ h2{
   color: #fff;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.view_profile:hover {
+  background-color: rgb(18, 18, 18);
   cursor: pointer;
 }

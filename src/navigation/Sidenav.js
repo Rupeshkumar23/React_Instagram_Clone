@@ -183,6 +183,7 @@ function Sidenav() {
                 )}
               </div>
               <hr className="search_hr" />
+
               <Stack
                 sx={{ marginTop: "1em" }}
                 direction="row"
@@ -195,6 +196,7 @@ function Sidenav() {
                   </p>
                 )}
               </Stack>
+
               {filteredData.length === 0 ? (
                 searchText ? (
                   <p
@@ -229,6 +231,7 @@ function Sidenav() {
                     alignItems="center"
                     justifyContent="space-between"
                     spacing={2}
+                    className="view_profile"
                     sx={{
                       padding: "15px",
                       maxWidth: "500px",

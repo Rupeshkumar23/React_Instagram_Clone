@@ -19,12 +19,12 @@
   font-weight: bolder;
 }
 
-.post_headerAuthor > span {
+.post_headerAuthor>span {
   color: grey;
   font-size: 15px;
 }
 
-.post_image > img {
+.post_image>img {
   width: 100%;
   border-radius: 6px;
   border: 0.6px solid rgba(128, 128, 128, 0.516);
@@ -40,14 +40,19 @@
   justify-content: space-between;
 }
 
-.postIcon{
+.postIcon {
   padding: 7px;
-  font-size:2.8rem!important;;
+  font-size: 2.8rem !important;
+}
+
+.postIcon:hover {
+  color: #939393;
 }
 
 .postIcon:hover {
   cursor: pointer;
 }
+
 .postIcon {
   transition: color 0.2s ease-in-out;
 }
@@ -61,14 +66,16 @@
   from {
     transform: scale(1);
   }
+
   to {
     transform: scale(1.2);
   }
 }
-.text_A{
- display: flex;
- margin-left: -.6rem;
- position: relative;
+
+.text_A {
+  display: flex;
+  margin-left: -.6rem;
+  position: relative;
 }
 
 textarea {
@@ -82,34 +89,39 @@ textarea {
   resize: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.post_P{
+
+.post_P {
   margin-top: 2px;
   color: #0095f6;
 }
-.post_P:hover{
+
+.post_P:hover {
   color: white;
 }
+
 .emoji {
   color: #9b9b9b;
   margin-left: 5px;
   font-size: 18px;
 }
 
-.pick_emoji{
+.pick_emoji {
   position: absolute;
   left: 36rem;
-  top:-26rem;
-}
-.pick_emoj_M{
-  position: absolute;
-  left: 2rem;
-  top:-28.3rem;
-}
-.emoji_M{
-position: relative;
+  top: -26rem;
 }
 
-.modalclassNameforAPost{
+.pick_emoj_M {
+  position: absolute;
+  left: 2rem;
+  top: -28.3rem;
+}
+
+.emoji_M {
+  position: relative;
+}
+
+.modalclassNameforAPost {
   width: 70%;
   height: 92vh;
   margin: auto;
@@ -125,19 +137,22 @@ position: relative;
   outline: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.scrollable-div{
-  height:65vh;
-  overflow:auto
+
+.scrollable-div {
+  height: 65vh;
+  overflow: auto
 }
 
 .scrollable-div::-webkit-scrollbar {
   width: 0.5em;
   background-color: transparent;
 }
+
 .scrollable-div::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
-.close_btn{
+
+.close_btn {
   position: absolute;
   right: 20px;
   top: 15px;
