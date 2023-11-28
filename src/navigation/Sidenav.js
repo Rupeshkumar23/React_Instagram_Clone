@@ -84,7 +84,7 @@ function Sidenav() {
   };
   const handleShowmodal = () => {
     setmodalIsOpen(true);
-    document.querySelector(".main").style.width = "2.8%";
+    document.querySelector(".main").style.width = "3.5%";
   };
   const handleSearchModalClose = () => {
     setmodalIsOpen(false);
