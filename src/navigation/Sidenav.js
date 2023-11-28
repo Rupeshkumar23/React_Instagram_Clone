@@ -46,6 +46,11 @@ function Sidenav() {
     setFilteredData(filtered);
   };
 
+  const handleClearIconClick = (id) => {
+    const updatedFilteredData = filteredData.filter((data) => data.id !== id);
+    setFilteredData(updatedFilteredData);
+  };
+
   const handleClearClick_1 = () => {
     setSearchText("");
     setFilteredData([]);
@@ -243,7 +248,10 @@ function Sidenav() {
                         {data.description}
                       </p>
                     </div>
-                    <ClearIcon sx={{ color: "#969696", cursor: "pointer" }} />
+                    <ClearIcon
+                      sx={{ color: "#969696", cursor: "pointer" }}
+                      onClick={() => handleClearIconClick(data.id)}
+                    />
                   </Stack>
                 ))
               )}
