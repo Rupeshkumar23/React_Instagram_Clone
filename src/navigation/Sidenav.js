@@ -33,6 +33,23 @@ function Sidenav() {
   const [searchText, setSearchText] = useState("");
   const [file, setFile] = useState(null);
   const [imagepre, setImagePre] = useState(null);
+  const [filteredData, setFilteredData] = useState([]);
+  const handleInputChange_1 = (e) => {
+    const text = e.target.value;
+    setSearchText(text);
+
+    // Filter searchData based on the input text
+    const filtered = searchData.filter((data) =>
+      data.user.toLowerCase().includes(text.toLowerCase())
+    );
+
+    setFilteredData(filtered);
+  };
+
+  const handleClearClick_1 = () => {
+    setSearchText("");
+    setFilteredData([]);
+  };
   const handleFileChange = (e) => {
     setFile(e.target?.files[0]);
     setImagePre(URL.createObjectURL(e.target.files[0]));
@@ -151,12 +168,12 @@ function Sidenav() {
                   placeholder="Search"
                   name="text"
                   value={searchText}
-                  onChange={handleInputChange}
+                  onChange={handleInputChange_1}
                 />
                 {searchText && (
                   <ClearIcon
                     className="clear-icon"
-                    onClick={handleClearClick}
+                    onClick={handleClearClick_1}
                   />
                 )}
               </div>
@@ -167,37 +184,69 @@ function Sidenav() {
                 justifyContent="space-between"
               >
                 <p style={{ marginLeft: "1em", fontWeight: "bold" }}>Recent</p>
-                <p className="clear_all">Clear all</p>
+                {filteredData.length > 0 && (
+                  <p className="clear_all" onClick={handleClearClick_1}>
+                    Clear all
+                  </p>
+                )}
               </Stack>
-              {searchData.map((data) => (
-                <Stack
-                  key={data.id}
-                  direction="row"
-                  alignItems="center"
-                  justifyContent="space-between"
-                  spacing={2}
-                  sx={{
-                    padding: "15px",
-                    maxWidth: "500px",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                  }}
-                >
-                  <Avatar alt="User Avatar" src={data.userAvatar} />
-                  <div style={{ marginLeft: "8px", flex: 1 }}>
-                    <p style={{ fontWeight: "bold", fontSize: "14px" }}>
-                      {data.user}{" "}
-                      {data.tickmark && (
-                        <img src={data.tickmark} width={15} alt="Verified" />
-                      )}
-                    </p>
-                    <p style={{ color: "#ddd", fontSize: "12px" }}>
-                      {data.description}
-                    </p>
-                  </div>
-                  <ClearIcon sx={{ color: "#969696", cursor: "pointer" }} />
-                </Stack>
-              ))}
+              {filteredData.length === 0 ? (
+                searchText ? (
+                  <p
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      height: "700px",
+                      color: "#ddd",
+                    }}
+                  >
+                    No results found
+                  </p>
+                ) : (
+                  <p
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      height: "700px",
+                      color: "#ddd",
+                    }}
+                  >
+                    No recent searches
+                  </p>
+                )
+              ) : (
+                filteredData.map((data) => (
+                  <Stack
+                    key={data.id}
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    spacing={2}
+                    sx={{
+                      padding: "15px",
+                      maxWidth: "500px",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    <Avatar alt="User Avatar" src={data.userAvatar} />
+                    <div style={{ marginLeft: "8px", flex: 1 }}>
+                      <p style={{ fontWeight: "bold", fontSize: "14px" }}>
+                        {data.user}{" "}
+                        {data.tickmark && (
+                          <img src={data.tickmark} width={15} alt="Verified" />
+                        )}
+                      </p>
+                      <p style={{ color: "#ddd", fontSize: "12px" }}>
+                        {data.description}
+                      </p>
+                    </div>
+                    <ClearIcon sx={{ color: "#969696", cursor: "pointer" }} />
+                  </Stack>
+                ))
+              )}
             </Modal>
             <button className="sidenav_button">
               <ExploreOutlinedIcon className="" />
