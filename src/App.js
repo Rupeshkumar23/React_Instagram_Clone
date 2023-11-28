@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { auth } from "./firebase";
 import { loginUser, setLoading } from "./features/userSlice";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,8 +50,15 @@ function App() {
             <div className="bar12"></div>
           </div>
         </div>
+      ) : user ? (
+        <Routes>
+          <Route path="/home" element={<Homepage />} />
+        </Routes>
       ) : (
-        <>{user ? <Homepage /> : <Authenticate />}</>
+        <Routes>
+          <Route path="/" element={<Navigate to="/authenticate" />} />
+          <Route path="/authenticate" element={<Authenticate />} />
+        </Routes>
       )}
     </div>
   );
