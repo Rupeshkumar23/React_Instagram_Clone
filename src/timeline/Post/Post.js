@@ -440,7 +440,21 @@ function Post({
                     <TelegramIcon className="postIcon" />
                   </div>
                   <div className="post_iconSave">
-                    <BookmarkBorderIcon className="postIcon" />
+                    {isSaved ? (
+                      <BookmarkOutlinedIcon
+                        sx={{
+                          fontSize: "2.8rem",
+                          padding: "7px",
+                          cursor: "pointer",
+                        }}
+                        onClick={handleSaveClick}
+                      />
+                    ) : (
+                      <BookmarkBorderIcon
+                        className="postIcon"
+                        onClick={handleSaveClick}
+                      />
+                    )}
                   </div>
                 </div>
                 <span style={{ marginLeft: 11 }} className="like-count">
