@@ -16,6 +16,7 @@ import Emoji1 from "../../Imgs/Emoji.png";
 import Img_10 from "../../Imgs/Tech_G.jpg";
 import { statusCarousel } from "../../Stories/data";
 import useAuth from "../../features/custom-hooks/useAuth";
+import ClearIcon from "@mui/icons-material/Clear";
 
 function Post({
   user,
@@ -51,6 +52,9 @@ function Post({
 
   const handleShowmodal = () => {
     setmodalIsOpen(true);
+  };
+  const closeBtn = () => {
+    setmodalIsOpen(false);
   };
   const toggleMainEmojiPickerVisibility = () => {
     setMainEmojiPickerVisibility(!isMainEmojiPickerVisible);
@@ -201,6 +205,11 @@ function Post({
         className={"modalclassNameforAPost"}
       >
         <div style={{ display: "flex" }}>
+          <ClearIcon
+            className="close_btn"
+            sx={{ fontSize: "30px" }}
+            onClick={closeBtn}
+          />
           <div style={{ flex: 1.3 }}>
             <img
               style={{ width: "100%", height: "90vh", objectFit: "cover" }}
@@ -513,7 +522,13 @@ function Post({
         {comments.map((comment, id) => (
           <p
             key={id}
-            style={{ marginTop: ".5rem", overflow:'hidden', display: "flex", flexWrap: "wrap", color: "#fff" }}
+            style={{
+              marginTop: ".5rem",
+              overflow: "hidden",
+              display: "flex",
+              flexWrap: "wrap",
+              color: "#fff",
+            }}
           >
             <img
               src={currentUser.photoURL}
