@@ -79,7 +79,7 @@ background: rgba(255, 255, 255, 0.316)!important;
 }
 
 
-.Noti_B::after {
+/* .Noti_B::after {
   content: '1';
   width: 20px;
   height: 20px;
@@ -95,7 +95,7 @@ background: rgba(255, 255, 255, 0.316)!important;
   border-radius: 50%;
   font-size: 12px;
   font-weight: bold;
-}
+} */
 
 .sidenav_more {
   margin-top: 18rem;
@@ -162,7 +162,7 @@ h2{
   background-color:rgba(255, 255, 255, 0.266); 
   border:none; 
   border-radius:5px;
-  width:80%; 
+  width:95%; 
   height:15px;
   margin-left:10px;
   outline: none;
@@ -180,6 +180,14 @@ h2{
   align-items: center;
   position: relative;
 }
+.clear_all{
+  margin-top: 2px;
+  color: #0095f6;
+}
+.clear_all:hover{
+  color: white;
+  cursor: pointer;
+}
 
 .search-icon,
 .clear-icon {
@@ -193,17 +201,21 @@ h2{
   left: 20px;
   font-size: 20px!important;
 }
-
+.search_hr{
+  border: 1px solid #ffffff1d;
+  margin-top: 20px;
+  position: relative;
+  left: 10px;
+ 
+}
 .clear-icon {
-  right: 70px;
+  right: 20px;
   padding: 2px;
   font-size: 15px!important;
   background-color:#ffffffc0; 
   color: black;
   border-radius: 50%;
 }
-
-
 
 .scrollable-div{
   height:65vh;
