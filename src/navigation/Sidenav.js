@@ -25,7 +25,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import Iconsfromcreatemodal from "../Imgs/Icon to represent media such as images or videos.png";
 import Badge from "@mui/material/Badge";
 import { searchData } from "./data";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import SkeletonAvatar from "./SkeletonAvatar";
 
 function Sidenav() {
@@ -47,8 +47,6 @@ function Sidenav() {
 
     setFilteredData(filtered);
   };
-
-  const navigate = useNavigate();
   const handleClearIconClick = (id) => {
     const updatedFilteredData = filteredData.filter((data) => data.id !== id);
     setFilteredData(updatedFilteredData);
@@ -76,15 +74,18 @@ function Sidenav() {
   const handleClearClick = () => {
     setSearchText("");
   };
-  const handelLogout = () => {
-    dispatch(logoutUser());
-    signOut(auth)
-      .then(() => {
-        navigate("/authenticate", { replace: true });
-      })
-      .catch((error) => {
-        console.error("Logout error:", error);
-      });
+  const navigate = useNavigate();
+
+  const handelLogout = async () => {
+    try {
+      await signOut(auth);
+      dispatch(logoutUser());
+      // Navigate only if logout is successful
+      navigate("/authenticate", { replace: true });
+    } catch (error) {
+      console.error("Logout error:", error);
+      // Handle error if needed
+    }
   };
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -151,7 +152,7 @@ function Sidenav() {
             />
           )}
 
-          <div className="sidenav_buttons">
+          <Link to="/home" className="sidenav_buttons">
             <button className="sidenav_button">
               <HomeIcon />
               <span>Home</span>
@@ -276,10 +277,10 @@ function Sidenav() {
               <SlideshowIcon className="" />
               <span>Reels</span>
             </button>
-            <button className="sidenav_button">
+            <Link to='/messages' className="sidenav_button">
               <ChatOutlinedIcon className="" />
               <span>Messages</span>
-            </button>
+            </Link>
             <button className="sidenav_button">
               <FavoriteBorderIcon className="" />
               <span>Notifications</span>
@@ -414,12 +415,22 @@ function Sidenav() {
                 <MenuItem className="Menu_C" onClick={handleClose}>
                   Settings
                 </MenuItem>
-                <MenuItem className="Menu_C" onClick={handelLogout}>
-                  <Link style={{textDecoration:'none', color:'white'}} to="/authenticate">Logout</Link>
-                </MenuItem>
+
+                {currentUser ? (
+                  // Content for authenticated user
+                  <div>
+                    {/* ... */}
+                    <MenuItem className="Menu_C" onClick={handelLogout}>
+                      Logout
+                    </MenuItem>
+                  </div>
+                ) : (
+                  // Content for unauthenticated user
+                  <Navigate to="/authenticate" replace />
+                )}
               </Popover>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="sidenav_more">
           <button

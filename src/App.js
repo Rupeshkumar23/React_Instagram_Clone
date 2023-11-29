@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { auth } from "./firebase";
 import { loginUser, setLoading } from "./features/userSlice";
 import { Navigate, Route, Routes } from "react-router-dom";
+import Messages from "./pages/Messages";
 
 function App() {
   const dispatch = useDispatch();
@@ -58,6 +59,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/authenticate" />} />
           <Route path="/authenticate" element={<Authenticate />} />
+          <Route path="/messages" element={<Messages />} />
         </Routes>
       )}
     </div>
