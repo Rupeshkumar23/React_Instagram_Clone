@@ -1,12 +1,109 @@
-import { Avatar } from "@mui/material";
+import { Avatar, Skeleton } from "@mui/material";
 import React from "react";
-import "./Suggestions.css";
 import Img1 from "../Imgs/Marvel.jpg";
 import Img2 from "../Imgs/Sony_Music.jpg";
 import useAuth from "../features/custom-hooks/useAuth";
+import './Suggestions.css'
 
 function Suggestions() {
   const { currentUser } = useAuth();
+
+  if (!currentUser) {
+    // Render skeleton loading state
+    return (
+      <div className="Rightbar">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginLeft: -30,
+            marginTop: 30,
+            cursor: "pointer",
+            marginBottom: 50,
+          }}
+        >
+          <Skeleton
+            variant="circular"
+            width={50}
+            height={50}
+            style={{ backgroundColor: "#424242" }}
+          />
+          <div style={{ marginLeft: 10, marginBottom: "2px" }}>
+            <Skeleton
+              width={100}
+              style={{ backgroundColor: "#424242" }}
+            />
+            <Skeleton
+              width={80}
+              style={{ backgroundColor: "#424242" }}
+            />
+          </div>
+          <div style={{ marginLeft: "127px", cursor: "pointer" }}>
+            <Skeleton
+              width={50}
+              style={{ backgroundColor: "#424242" }}
+            />
+          </div>
+        </div>
+
+        <div className="suggestions">
+          <div className="suggestions_title">
+            <Skeleton width={200} style={{ backgroundColor: "#424242" }} />
+            <span><Skeleton width={50} style={{ backgroundColor:'#424242'}}/></span>
+          </div>
+
+          <div className="suggestions_usernames">
+            {[1, 2, 3, 4].map((index) => (
+              <div key={index} className="suggestions_username">
+                <div className="username_left">
+                  <span className="avatar">
+                    <Skeleton
+                      variant="circular"
+                      width={40}
+                      height={40}
+                      style={{ backgroundColor: "#424242" }}
+                    />
+                  </span>
+                  <div className="username_info">
+                    <Skeleton
+                      width={80}
+                      style={{ backgroundColor: "#424242" }}
+                    />
+                    <Skeleton
+                      width={100}
+                      style={{ backgroundColor: "#424242" }}
+                    />
+                  </div>
+                </div>
+                <Skeleton
+                  variant="rectangular"
+                  width={50}
+                  height={10}
+                  style={{ backgroundColor: "#424242" }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="Foot_About">
+          <ul>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((index) => (
+              <li key={index}>
+                <Skeleton width={40} style={{ backgroundColor: "#424242" }} />
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="copy_r">
+          <Skeleton width={200} style={{ backgroundColor: "#424242" }} />
+        </div>
+      </div>
+    );
+  }
+
+  // Render the actual content once the data is available
   return (
     <>
       <div className="Rightbar">

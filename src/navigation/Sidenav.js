@@ -25,6 +25,8 @@ import ClearIcon from "@mui/icons-material/Clear";
 import Iconsfromcreatemodal from "../Imgs/Icon to represent media such as images or videos.png";
 import Badge from "@mui/material/Badge";
 import { searchData } from "./data";
+import { Link, useNavigate } from "react-router-dom";
+import SkeletonAvatar from "./SkeletonAvatar";
 
 function Sidenav() {
   const { currentUser } = useAuth();
@@ -46,6 +48,7 @@ function Sidenav() {
     setFilteredData(filtered);
   };
 
+  const navigate = useNavigate();
   const handleClearIconClick = (id) => {
     const updatedFilteredData = filteredData.filter((data) => data.id !== id);
     setFilteredData(updatedFilteredData);
@@ -75,7 +78,13 @@ function Sidenav() {
   };
   const handelLogout = () => {
     dispatch(logoutUser());
-    signOut(auth);
+    signOut(auth)
+      .then(() => {
+        navigate("/authenticate", { replace: true });
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+      });
   };
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -364,7 +373,7 @@ function Sidenav() {
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
               >
-                {currentUser && currentUser.photoURL && (
+                {currentUser && currentUser.photoURL ? (
                   <Avatar
                     className=""
                     style={{
@@ -375,9 +384,12 @@ function Sidenav() {
                     alt="UserAvatar"
                     src={currentUser.photoURL}
                   />
+                ) : (
+                  <SkeletonAvatar />
                 )}
                 <span className="log_p">Profile </span>
               </Button>
+
               <Popover
                 id="demo-positioned-popover"
                 open={open}
@@ -403,7 +415,7 @@ function Sidenav() {
                   Settings
                 </MenuItem>
                 <MenuItem className="Menu_C" onClick={handelLogout}>
-                  Logout
+                  <Link style={{textDecoration:'none', color:'white'}} to="/authenticate">Logout</Link>
                 </MenuItem>
               </Popover>
             </div>

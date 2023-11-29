@@ -12,10 +12,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { storage } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 import './Signup.css'
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -75,6 +76,8 @@ function Signup() {
 
       dispatch(loginUser({ uid: user.uid, email, username, avatarURL }));
       dispatch(setAvatarURL(avatarURL));
+      navigate("/authenticate"); // Use the navigate function
+
 
     } catch (err) {
       setLoading(false);
