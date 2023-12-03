@@ -7,6 +7,7 @@ import { auth } from "./firebase";
 import { loginUser, setLoading } from "./features/userSlice";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Messages from "./pages/Messages";
+import VerticalReels from "./pages/Reels/VerticalReels";
 
 function App() {
   const dispatch = useDispatch();
@@ -60,6 +61,7 @@ function App() {
           <Route path="/" element={<Navigate to="/authenticate" />} />
           <Route path="/authenticate" element={<Authenticate />} />
           <Route path="/messages" element={<Messages />} />
+          <Route path="/reels" element={<VerticalReels />} />
         </Routes>
       )}
     </div>

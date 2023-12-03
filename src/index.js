@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Authenticate from "./authenticate/Authenticate";
 import Homepage from "./Homepage";
 import Messages from "./pages/Messages";
+import VerticalReels from "./pages/Reels/VerticalReels";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
   {
     path:"/messages",
     element:<Messages/>
-  }
+  },
+  {
+    path:"/reels",
+    element:<VerticalReels/>
+  },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

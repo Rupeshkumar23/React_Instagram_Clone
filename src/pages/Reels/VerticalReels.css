@@ -1,0 +1,57 @@
+.vertical-reels-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vertical-reel {
+  width: 400px;
+  height: 750px;
+  margin-bottom: 30px;
+  margin-left: 300px;
+  margin-top: 30px;
+  filter: drop-shadow(2px 2px 20px #ffffff30);
+}
+
+.all_icons {
+  display: flex;
+  flex-direction: column;
+}
+
+.fav_1 {
+  position: relative;
+  font-size: 30px !important;
+  left: 400px;
+  top: -400px;
+  margin: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+
+}
+
+.move_top {
+  position: absolute;
+  top: 350px;
+  left: 418px;
+}
+
+.move_top1 {
+  position: absolute;
+  top: 418px;
+  left: 422px;
+}
+
+.fav_1_active {
+  color: #FF3040;
+  animation: zoomIn 0.2s ease-in-out;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.2);
+  }
+}
