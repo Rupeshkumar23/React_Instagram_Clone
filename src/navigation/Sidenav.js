@@ -141,7 +141,7 @@ function Sidenav() {
             />
           ) : (
             <img
-              className="sidenav_logo"
+              className="sidenav_logo span_hide"
               src="https://www.pngkey.com/png/full/828-8286178_mackeys-work-needs-no-elaborate-presentation-or-distracting.png"
               alt="Instagram Logo"
             />
@@ -150,11 +150,11 @@ function Sidenav() {
           <Link to="/home" className="sidenav_buttons">
             <button className="sidenav_button">
               <HomeIcon />
-              <span>Home</span>
+              <span className="span_hide">Home</span>
             </button>
             <button className="sidenav_button">
               <SearchIcon onClick={handleSearchModalClose} />
-              <span onClick={handleShowmodal}>Search</span>
+              <span className="span_hide" onClick={handleShowmodal}>Search</span>
             </button>
             {/* Search Modal */}
             <SearchModal
@@ -166,21 +166,33 @@ function Sidenav() {
               filteredData={filteredData}
               handleClearIconClick={handleClearIconClick}
             />
-            <Link to="/explore" style={{textDecoration:'none',fontWeight:'bold'}} className="sidenav_button">
+            <Link
+              to="/explore"
+              style={{ textDecoration: "none", fontWeight: "bold" }}
+              className="sidenav_button"
+            >
               <ExploreOutlinedIcon className="" />
-              <span>Explore</span>
+              <span className="span_hide">Explore</span>
             </Link>
-            <Link to="/reels" style={{textDecoration:'none',fontWeight:'bold'}} className="sidenav_button">
+            <Link
+              to="/reels"
+              style={{ textDecoration: "none", fontWeight: "bold" }}
+              className="sidenav_button"
+            >
               <SlideshowIcon className="" />
-              <span>Reels</span>
+              <span className="span_hide">Reels</span>
             </Link>
-            <Link to="/messages"style={{textDecoration:'none',fontWeight:'bold'}} className="sidenav_button">
+            <Link
+              to="/messages"
+              style={{ textDecoration: "none", fontWeight: "bold" }}
+              className="sidenav_button"
+            >
               <ChatOutlinedIcon className="" />
-              <span >Messages</span>
+              <span className="span_hide">Messages</span>
             </Link>
             <button className="sidenav_button">
               <FavoriteBorderIcon className="" />
-              <span>Notifications</span>
+              <span className="span_hide">Notifications</span>
             </button>
             <Modal
               style={{
@@ -209,18 +221,24 @@ function Sidenav() {
                           <p className="upload-text">
                             Drag photos and videos here
                           </p>
-                          <label htmlFor="file" className="select-button">
+                          <label
+                            htmlFor="file"
+                            className="select-button"
+                            onClick={(e) => {
+                              e.stopPropagation(); // Stop event propagation
+                            }}
+                          >
                             <div className="select-button-inner">
                               <p>Select from computer</p>
+                              <input
+                                type="file"
+                                name="file"
+                                id="file"
+                                accept="image/*"
+                                onChange={handleFileChange}
+                                className="file-input"
+                              />
                             </div>
-                            <input
-                              type="file"
-                              name="file"
-                              id="file"
-                              accept="image/*"
-                              onChange={handleFileChange}
-                              className="file-input"
-                            />
                           </label>
                         </div>
                       </div>
@@ -261,7 +279,7 @@ function Sidenav() {
             </Modal>
             <button className="sidenav_button">
               <AddBoxOutlinedIcon onClick={handleCloseModal_C} className="" />
-              <span onClick={handleShowmodal_C}>Create</span>
+              <span className="span_hide" onClick={handleShowmodal_C}>Create</span>
             </button>
             <div className="sidenav_button1 pop_bg">
               <Button
@@ -285,7 +303,13 @@ function Sidenav() {
                 ) : (
                   <SkeletonAvatar />
                 )}
-                <Link to="/username" style={{textDecoration:'none',fontWeight:'bold'}} className="log_p">Profile </Link>
+                <Link
+                  to="/username"
+                  style={{ textDecoration: "none", fontWeight: "bold" }}
+                  className="log_p span_hide"
+                >
+                  Profile{" "}
+                </Link>
               </Button>
 
               <Popover
@@ -352,7 +376,7 @@ function Sidenav() {
             </Badge>
             <a
               href="https://www.threads.net/login"
-              className="sidenav_buttonText"
+              className="sidenav_buttonText span_hide"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -362,7 +386,7 @@ function Sidenav() {
           </button>
           <button className="sidenav_button">
             <MenuIcon className="" />
-            <span className="sidenav_buttonText">More</span>
+            <span className="sidenav_buttonText span_hide">More</span>
           </button>
         </div>
       </div>

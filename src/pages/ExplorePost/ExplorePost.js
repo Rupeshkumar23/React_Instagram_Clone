@@ -4,7 +4,7 @@ import comment from "../../Imgs/Comment.png"
 import "../../pages/ExplorePost/Explore.css"
 
 export default function Explorepost(item) {
-  console.log(item)
+  // console.log(item)
  
   return (
     <div className="container" >

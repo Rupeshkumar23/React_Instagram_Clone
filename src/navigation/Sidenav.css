@@ -372,6 +372,20 @@ h2 {
   background-color: rgb(18, 18, 18);
   cursor: pointer;
 }
-.create_box{
-  z-index: 100;
+
+/* Tablet styles - adjust as needed */
+@media screen and (max-width: 1023px) {
+ .span_hide{
+  display: none;
+ }
+ .main{
+  border-right: 1px solid #ffffff3b;
+  position: fixed;
+  height: 100vh;
+  width: 8%;
+  transition: width 0.5s ease-in-out;
+  margin-left: -5px;
+ }
+
+  /* Add more tablet-specific styles here */
 }
