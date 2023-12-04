@@ -8,6 +8,8 @@ import { loginUser, setLoading } from "./features/userSlice";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Messages from "./pages/Messages";
 import VerticalReels from "./pages/Reels/VerticalReels";
+import Explore from "./pages/ExplorePost/Explore";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   const dispatch = useDispatch();
@@ -62,6 +64,8 @@ function App() {
           <Route path="/authenticate" element={<Authenticate />} />
           <Route path="/messages" element={<Messages />} />
           <Route path="/reels" element={<VerticalReels />} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/username" element={<Profile />} />
         </Routes>
       )}
     </div>

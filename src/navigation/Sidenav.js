@@ -166,17 +166,17 @@ function Sidenav() {
               filteredData={filteredData}
               handleClearIconClick={handleClearIconClick}
             />
-            <button className="sidenav_button">
+            <Link to="/explore" style={{textDecoration:'none',fontWeight:'bold'}} className="sidenav_button">
               <ExploreOutlinedIcon className="" />
               <span>Explore</span>
-            </button>
-            <Link to="/reels" className="sidenav_button">
+            </Link>
+            <Link to="/reels" style={{textDecoration:'none',fontWeight:'bold'}} className="sidenav_button">
               <SlideshowIcon className="" />
               <span>Reels</span>
             </Link>
-            <Link to="/messages" className="sidenav_button">
+            <Link to="/messages"style={{textDecoration:'none',fontWeight:'bold'}} className="sidenav_button">
               <ChatOutlinedIcon className="" />
-              <span>Messages</span>
+              <span >Messages</span>
             </Link>
             <button className="sidenav_button">
               <FavoriteBorderIcon className="" />
@@ -285,7 +285,7 @@ function Sidenav() {
                 ) : (
                   <SkeletonAvatar />
                 )}
-                <span className="log_p">Profile </span>
+                <Link to="/username" style={{textDecoration:'none',fontWeight:'bold'}} className="log_p">Profile </Link>
               </Button>
 
               <Popover

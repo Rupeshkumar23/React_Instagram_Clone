@@ -372,3 +372,6 @@ h2 {
   background-color: rgb(18, 18, 18);
   cursor: pointer;
 }
+.create_box{
+  z-index: 100;
+}
